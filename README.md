@@ -9,5 +9,5 @@ Kelompok junproZzZ
 - Anggota 1: Aurellya Ratna Dewanti - 23/517176/TK/56870
 - Anggota 2: Syifa Alifiya - 23/517440/TK/56918
 
-Desain Class
+## Desain Class Diagram
 ![Class Diagram](images/classDiagram.png)
