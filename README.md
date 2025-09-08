@@ -10,4 +10,4 @@ Kelompok junproZzZ
 - Anggota 2: Syifa Alifiya - 23/517440/TK/56918
 
 Desain Class
-![Class Diagram](images/classDiagram.jpg)
+![Class Diagram](images/classDiagram.png)
