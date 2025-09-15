@@ -10,4 +10,7 @@ Kelompok junproZzZ
 - Anggota 2: Syifa Alifiya - 23/517440/TK/56918
 
 ## Desain Class Diagram
-![Class Diagram](images/classDiagram.png)
+![Class Diagram - SeaNote](images/classDiagram.png)
+
+## Desain Entity Relationship Diagram <i>(Enhanced)</i>
+![Entity Relationship Diagram - SeaNote](images/ERD.png)
