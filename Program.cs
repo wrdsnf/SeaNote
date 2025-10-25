@@ -1,37 +1,23 @@
+﻿// File: SeaNoteApp/Program.cs
+// INI KODE BERSIH. LANGSUNG KOPAS SEMUA.
+
 using System;
-using SeaNote.Models;
+using System.Windows.Forms;
 
 namespace SeaNoteApp
 {
-    class Program
+    static class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
         {
-            var user = new User { UserID = 1, Username = "admin", Role = "Administrator" };
-            user.SetPassword("12345");
-
-            Console.WriteLine(user.Login("admin", "12345") ? "Login sukses" : "Login gagal");
-
-            var trip = new Trip
-            {
-                TripID = 1,
-                KodeTrip = "TRIP-001",
-                NamaKapal = "Nusantara",
-                TanggalBerangkat = DateTime.Now,
-                TanggalSampai = DateTime.Now.AddDays(2),
-                TitikBerangkat = "Pelabuhan A",
-                Nakhoda = "Pak Jono",
-                Notes = "Jaga cuaca",
-                UserID = user.UserID
-            };
-
-            trip.AddTask(new TripTask { TaskID = 1, NamaTask = "Cek Mesin", Deskripsi = "Periksa mesin utama" });
-            trip.AddTask(new TripTask { TaskID = 2, NamaTask = "Cek Navigasi", Deskripsi = "Test alat navigasi" });
-
-            trip.AddLog(new Log { LogID = 1, TanggalLog = DateTime.Now, JenisLog = "Info", IsiLog = "Berangkat" });
-
-            Console.WriteLine($"Trip {trip.KodeTrip} ({trip.NamaKapal}) - Tasks: {trip.Tasks.Count}, Logs: {trip.Logs.Count}");
-            Console.WriteLine($"Generated KodeTrip: {trip.GenerateKodeTrip()}");
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            // Jalankan LoginPage
+            Application.Run(new LoginPage());
         }
     }
 }
