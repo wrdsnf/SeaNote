@@ -1,7 +1,4 @@
-﻿// File: SeaNoteApp/Program.cs
-// INI KODE BERSIH. LANGSUNG KOPAS SEMUA.
-
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace SeaNoteApp
