@@ -28,21 +28,22 @@ namespace SeaNoteApp
                 loggedInUser = userToLogin;
                 MessageBox.Show("Login Berhasil! Role Anda: " + loggedInUser.Role);
 
-                if (loggedInUser.Role == "admin")
+                // --- INI PERBAIKANNYA ---
+                // Kita pake ?.ToLower() biar gak peduli huruf besar/kecil
+
+                if (loggedInUser.Role?.ToLower() == "admin")
                 {
-                    DashboardAdminForm adminForm = new DashboardAdminForm();
-                    adminForm.Show();
+                    new DashboardAdminForm().Show();
                 }
-                else if (loggedInUser.Role == "owner")
+                else if (loggedInUser.Role?.ToLower() == "owner")
                 {
-                    DashboardOwnerForm ownerForm = new DashboardOwnerForm();
-                    ownerForm.Show();
+                    new DashboardOwnerForm().Show();
                 }
-                else if (loggedInUser.Role == "engineer")
+                else if (loggedInUser.Role?.ToLower() == "engineer")
                 {
-                    DashboardEngineerForm engineerForm = new DashboardEngineerForm();
-                    engineerForm.Show();
+                    new DashboardEngineerForm().Show();
                 }
+
                 this.Hide();
             }
             else if (userToLogin != null && userToLogin.Role == null)
