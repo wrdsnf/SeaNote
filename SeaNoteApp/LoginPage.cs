@@ -1,81 +1,83 @@
-﻿// File: SeaNoteApp/LoginPage.cs (Code-Behind)
-
-// Taruh ini di paling atas, di bawah 'using'
-using SeaNote.Models; // <-- PASTIKAN INI ADA
+﻿using SeaNote.Models;
+using System;
 using System.Collections.Generic;
-using System.Linq; // <-- PASTIKAN INI ADA
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-// ... di dalem class LoginPage ...
-
-// Bikin database user dummy (sesuai User.cs lu)
-public static List<User> dummyUsers; // Bikin 'static' biar bisa diakses Form lain
-public static User loggedInUser; // Simpen siapa yang login
-
-// Ganti constructor lu jadi ini
-public LoginPage()
+namespace SeaNoteApp
 {
-    InitializeComponent();
-    InitializeDummyUsers(); // Panggil method-nya
-}
-
-private void InitializeDummyUsers()
-{
-    dummyUsers = new List<User>();
-
-    var admin = new User { UserID = 1, Username = "admin", Role = "admin" };
-    admin.SetPassword("123"); // Pake method dari User.cs lu
-    dummyUsers.Add(admin);
-
-    var owner = new User { UserID = 2, Username = "owner", Role = "owner" };
-    owner.SetPassword("123");
-    dummyUsers.Add(owner);
-
-    var engineer = new User { UserID = 3, Username = "engineer", Role = "engineer" };
-    engineer.SetPassword("123");
-    dummyUsers.Add(engineer);
-}
-
-// Event handler, DISESUAIKAN SAMA User.cs LU
-private void btnLogin_Click(object sender, EventArgs e)
-{
-    string username = tbUsername.Text;
-    string password = tbPassword.Text;
-
-    // 1. Cari user-nya
-    User userToLogin = dummyUsers.Find(u => u.Username == username);
-
-    // 2. Cek login pake method dari User.cs lu
-    if (userToLogin != null && userToLogin.Login(username, password))
+    public partial class LoginPage : Form
     {
-        loggedInUser = userToLogin; // Simpen user-nya
-        MessageBox.Show("Login Berhasil! Role Anda: " + loggedInUser.Role);
+        public static List<User> dummyUsers;
+        public static User loggedInUser;
 
-        // 3. Pindah Halaman
-        if (loggedInUser.Role == "admin")
+        public LoginPage()
         {
-            DashboardAdminForm adminForm = new DashboardAdminForm();
-            adminForm.Show();
+            InitializeComponent();
+            InitializeDummyUsers();
         }
-        else if (loggedInUser.Role == "owner")
+
+        private void InitializeDummyUsers()
         {
-            DashboardOwnerForm ownerForm = new DashboardOwnerForm();
-            ownerForm.Show();
+            dummyUsers = new List<User>();
+
+            var admin = new User { UserID = 1, Username = "admin", Role = "admin" };
+            admin.SetPassword("123");
+            dummyUsers.Add(admin);
+
+            var owner = new User { UserID = 2, Username = "owner", Role = "owner" };
+            owner.SetPassword("123");
+            dummyUsers.Add(owner);
+
+            var engineer = new User { UserID = 3, Username = "engineer", Role = "engineer" };
+            engineer.SetPassword("123");
+            dummyUsers.Add(engineer);
         }
-        else if (loggedInUser.Role == "engineer")
+
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-            DashboardEngineerForm engineerForm = new DashboardEngineerForm();
-            engineerForm.Show();
+            string username = tbUsername.Text;
+            string password = tbPassword.Text;
+
+            User userToLogin = dummyUsers.Find(u => u.Username == username);
+
+            if (userToLogin != null && userToLogin.Login(username, password))
+            {
+                loggedInUser = userToLogin;
+                MessageBox.Show("Login Berhasil! Role Anda: " + loggedInUser.Role);
+
+                if (loggedInUser.Role == "admin")
+                {
+                    DashboardAdminForm adminForm = new DashboardAdminForm();
+                    adminForm.Show();
+                }
+                else if (loggedInUser.Role == "owner")
+                {
+                    DashboardOwnerForm ownerForm = new DashboardOwnerForm();
+                    ownerForm.Show();
+                }
+                else if (loggedInUser.Role == "engineer")
+                {
+                    DashboardEngineerForm engineerForm = new DashboardEngineerForm();
+                    engineerForm.Show();
+                }
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Login Gagal! Username atau password salah.");
+            }
         }
-        this.Hide();
-    }
-    else
-    {
-        MessageBox.Show("Login Gagal! Username atau password salah.");
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
 
-// Event handler buat tombol Close
-private void btnClose_Click(object sender, EventArgs e)
-{
-    Application.Exit();
-}
