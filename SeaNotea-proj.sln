@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35931.197 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeaNote", "..\..\repos\SeaNote\SeaNote.csproj", "{1FA60D2D-CBAC-DB3B-9446-E17FB2F6BBF9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeaNote", "SeaNote\SeaNote.csproj", "{1FA60D2D-CBAC-DB3B-9446-E17FB2F6BBF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeaNoteApp", "..\..\SeaNoteApp\SeaNoteApp.csproj", "{B3F9489B-C206-43A3-B8FA-D4F87341272F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeaNoteApp", "SeaNoteApp\SeaNoteApp.csproj", "{B3F9489B-C206-43A3-B8FA-D4F87341272F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
