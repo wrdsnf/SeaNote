@@ -40,6 +40,10 @@ namespace SeaNoteApp
         {
             new ExportReportForm().Show();
         }
+        private void btnUserManagement_Click(object sender, EventArgs e)
+        {
+            new UserManagementForm().Show();
+        }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
