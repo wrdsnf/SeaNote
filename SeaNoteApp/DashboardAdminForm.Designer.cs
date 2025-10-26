@@ -59,7 +59,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { logoutToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(220, 42);
+            menuStrip1.Size = new Size(220, 40);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             menuStrip1.Click += logoutToolStripMenuItem_Click;
@@ -67,7 +67,7 @@
             // logoutToolStripMenuItem
             // 
             logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            logoutToolStripMenuItem.Size = new Size(109, 38);
+            logoutToolStripMenuItem.Size = new Size(109, 36);
             logoutToolStripMenuItem.Text = "Logout";
             logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
             // 
@@ -88,9 +88,9 @@
             // btnExportReport
             // 
             btnExportReport.Dock = DockStyle.Top;
-            btnExportReport.Location = new Point(0, 250);
+            btnExportReport.Location = new Point(0, 675);
             btnExportReport.Name = "btnExportReport";
-            btnExportReport.Size = new Size(580, 50);
+            btnExportReport.Size = new Size(580, 135);
             btnExportReport.TabIndex = 5;
             btnExportReport.Text = "Export Reports";
             btnExportReport.UseVisualStyleBackColor = true;
@@ -99,9 +99,9 @@
             // btnMaintenanceAdmin
             // 
             btnMaintenanceAdmin.Dock = DockStyle.Top;
-            btnMaintenanceAdmin.Location = new Point(0, 200);
+            btnMaintenanceAdmin.Location = new Point(0, 540);
             btnMaintenanceAdmin.Name = "btnMaintenanceAdmin";
-            btnMaintenanceAdmin.Size = new Size(580, 50);
+            btnMaintenanceAdmin.Size = new Size(580, 135);
             btnMaintenanceAdmin.TabIndex = 4;
             btnMaintenanceAdmin.Text = "Manage Maintenance";
             btnMaintenanceAdmin.UseVisualStyleBackColor = true;
@@ -110,9 +110,9 @@
             // btnLogManagement
             // 
             btnLogManagement.Dock = DockStyle.Top;
-            btnLogManagement.Location = new Point(0, 150);
+            btnLogManagement.Location = new Point(0, 405);
             btnLogManagement.Name = "btnLogManagement";
-            btnLogManagement.Size = new Size(580, 50);
+            btnLogManagement.Size = new Size(580, 135);
             btnLogManagement.TabIndex = 3;
             btnLogManagement.Text = "Manage Logs";
             btnLogManagement.UseVisualStyleBackColor = true;
@@ -121,19 +121,20 @@
             // btnTaskManagement
             // 
             btnTaskManagement.Dock = DockStyle.Top;
-            btnTaskManagement.Location = new Point(0, 100);
+            btnTaskManagement.Location = new Point(0, 270);
             btnTaskManagement.Name = "btnTaskManagement";
-            btnTaskManagement.Size = new Size(580, 50);
+            btnTaskManagement.Size = new Size(580, 135);
             btnTaskManagement.TabIndex = 2;
             btnTaskManagement.Text = "Manage Tasks";
             btnTaskManagement.UseVisualStyleBackColor = true;
+            btnTaskManagement.Click += btnTaskManagement_Click;
             // 
             // btnTripManagement
             // 
             btnTripManagement.Dock = DockStyle.Top;
-            btnTripManagement.Location = new Point(0, 50);
+            btnTripManagement.Location = new Point(0, 135);
             btnTripManagement.Name = "btnTripManagement";
-            btnTripManagement.Size = new Size(580, 50);
+            btnTripManagement.Size = new Size(580, 135);
             btnTripManagement.TabIndex = 1;
             btnTripManagement.Text = "Manage Trips";
             btnTripManagement.UseVisualStyleBackColor = true;
@@ -144,7 +145,7 @@
             btnShipManagement.Dock = DockStyle.Top;
             btnShipManagement.Location = new Point(0, 0);
             btnShipManagement.Name = "btnShipManagement";
-            btnShipManagement.Size = new Size(580, 50);
+            btnShipManagement.Size = new Size(580, 135);
             btnShipManagement.TabIndex = 0;
             btnShipManagement.Text = "Manage Ships";
             btnShipManagement.UseVisualStyleBackColor = true;

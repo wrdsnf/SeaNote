@@ -114,10 +114,11 @@
             // 
             dataGridViewMaint.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewMaint.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewMaint.Location = new Point(28, 455);
+            dataGridViewMaint.Dock = DockStyle.Bottom;
+            dataGridViewMaint.Location = new Point(0, 363);
             dataGridViewMaint.Name = "dataGridViewMaint";
             dataGridViewMaint.RowHeadersWidth = 82;
-            dataGridViewMaint.Size = new Size(820, 300);
+            dataGridViewMaint.Size = new Size(874, 300);
             dataGridViewMaint.TabIndex = 19;
             // 
             // btnUpdateMaint
@@ -150,7 +151,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(874, 945);
+            ClientSize = new Size(874, 663);
             Controls.Add(dataGridViewMaint);
             Controls.Add(btnUpdateMaint);
             Controls.Add(btnAddMaint);
@@ -164,6 +165,7 @@
             Controls.Add(label1);
             Name = "MaintenanceEngineerForm";
             Text = "Add/Edit Maintenance";
+            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)dataGridViewMaint).EndInit();
             ResumeLayout(false);
             PerformLayout();

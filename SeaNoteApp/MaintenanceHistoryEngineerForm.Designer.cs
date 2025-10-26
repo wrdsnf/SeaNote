@@ -51,6 +51,7 @@
             Controls.Add(dataGridViewHistory);
             Name = "MaintenanceHistoryEngineerForm";
             Text = "Maintenance History (Engineer)";
+            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)dataGridViewHistory).EndInit();
             ResumeLayout(false);
         }

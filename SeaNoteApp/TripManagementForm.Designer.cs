@@ -154,10 +154,11 @@
             // 
             dataGridViewTrips.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewTrips.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewTrips.Location = new Point(12, 468);
+            dataGridViewTrips.Dock = DockStyle.Bottom;
+            dataGridViewTrips.Location = new Point(0, 503);
             dataGridViewTrips.Name = "dataGridViewTrips";
             dataGridViewTrips.RowHeadersWidth = 82;
-            dataGridViewTrips.Size = new Size(820, 350);
+            dataGridViewTrips.Size = new Size(800, 350);
             dataGridViewTrips.TabIndex = 16;
             // 
             // TripManagementForm

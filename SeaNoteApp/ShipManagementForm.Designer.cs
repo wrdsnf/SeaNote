@@ -200,19 +200,20 @@
             // dataGridViewShips
             // 
             dataGridViewShips.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewShips.Location = new Point(24, 511);
+            dataGridViewShips.Dock = DockStyle.Bottom;
+            dataGridViewShips.Location = new Point(0, 488);
             dataGridViewShips.Name = "dataGridViewShips";
             dataGridViewShips.ReadOnly = true;
             dataGridViewShips.RowHeadersWidth = 82;
             dataGridViewShips.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewShips.Size = new Size(820, 350);
+            dataGridViewShips.Size = new Size(901, 350);
             dataGridViewShips.TabIndex = 16;
             // 
             // ShipManagementForm
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(874, 768);
+            ClientSize = new Size(901, 838);
             Controls.Add(dataGridViewShips);
             Controls.Add(btnClear);
             Controls.Add(btnDelete);
@@ -232,6 +233,7 @@
             Controls.Add(label1);
             Name = "ShipManagementForm";
             Text = "Ship Management";
+            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)dataGridViewShips).EndInit();
             ResumeLayout(false);
             PerformLayout();

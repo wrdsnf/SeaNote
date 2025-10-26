@@ -65,10 +65,10 @@
             // dataGridViewTasks
             // 
             dataGridViewTasks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewTasks.Location = new Point(46, 114);
+            dataGridViewTasks.Location = new Point(0, 322);
             dataGridViewTasks.Name = "dataGridViewTasks";
             dataGridViewTasks.RowHeadersWidth = 82;
-            dataGridViewTasks.Size = new Size(416, 300);
+            dataGridViewTasks.Size = new Size(703, 294);
             dataGridViewTasks.TabIndex = 2;
             // 
             // flowLayoutPanel1
@@ -81,9 +81,9 @@
             flowLayoutPanel1.Controls.Add(btnAddTask);
             flowLayoutPanel1.Controls.Add(btnUpdateTask);
             flowLayoutPanel1.Dock = DockStyle.Right;
-            flowLayoutPanel1.Location = new Point(674, 0);
+            flowLayoutPanel1.Location = new Point(709, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(300, 533);
+            flowLayoutPanel1.Size = new Size(300, 616);
             flowLayoutPanel1.TabIndex = 3;
             // 
             // label2
@@ -154,7 +154,7 @@
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(974, 533);
+            ClientSize = new Size(1009, 616);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(dataGridViewTasks);
             Controls.Add(cbTrips);

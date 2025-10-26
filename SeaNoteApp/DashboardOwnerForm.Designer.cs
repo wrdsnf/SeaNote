@@ -56,9 +56,9 @@
             // btnReportOwner
             // 
             btnReportOwner.Dock = DockStyle.Top;
-            btnReportOwner.Location = new Point(0, 150);
+            btnReportOwner.Location = new Point(0, 405);
             btnReportOwner.Name = "btnReportOwner";
-            btnReportOwner.Size = new Size(580, 50);
+            btnReportOwner.Size = new Size(580, 135);
             btnReportOwner.TabIndex = 3;
             btnReportOwner.Text = "Report Problem";
             btnReportOwner.UseVisualStyleBackColor = true;
@@ -67,9 +67,9 @@
             // btnMaintenanceViewer
             // 
             btnMaintenanceViewer.Dock = DockStyle.Top;
-            btnMaintenanceViewer.Location = new Point(0, 100);
+            btnMaintenanceViewer.Location = new Point(0, 270);
             btnMaintenanceViewer.Name = "btnMaintenanceViewer";
-            btnMaintenanceViewer.Size = new Size(580, 50);
+            btnMaintenanceViewer.Size = new Size(580, 135);
             btnMaintenanceViewer.TabIndex = 2;
             btnMaintenanceViewer.Text = "View Maintenance Record";
             btnMaintenanceViewer.UseVisualStyleBackColor = true;
@@ -78,9 +78,9 @@
             // btnShipViewer
             // 
             btnShipViewer.Dock = DockStyle.Top;
-            btnShipViewer.Location = new Point(0, 50);
+            btnShipViewer.Location = new Point(0, 135);
             btnShipViewer.Name = "btnShipViewer";
-            btnShipViewer.Size = new Size(580, 50);
+            btnShipViewer.Size = new Size(580, 135);
             btnShipViewer.TabIndex = 1;
             btnShipViewer.Text = "View Ship";
             btnShipViewer.UseVisualStyleBackColor = true;
@@ -91,7 +91,7 @@
             btnTripViewer.Dock = DockStyle.Top;
             btnTripViewer.Location = new Point(0, 0);
             btnTripViewer.Name = "btnTripViewer";
-            btnTripViewer.Size = new Size(580, 50);
+            btnTripViewer.Size = new Size(580, 135);
             btnTripViewer.TabIndex = 0;
             btnTripViewer.Text = "View All Trips";
             btnTripViewer.UseVisualStyleBackColor = true;
@@ -117,6 +117,7 @@
             menuStrip1.Size = new Size(220, 40);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
+            menuStrip1.Click += logoutToolStripMenuItem_Click;
             // 
             // logoutToolStripMenuItem
             // 

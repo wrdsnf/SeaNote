@@ -52,9 +52,9 @@
             // btnMaintenanceHistory
             // 
             btnMaintenanceHistory.Dock = DockStyle.Top;
-            btnMaintenanceHistory.Location = new Point(0, 50);
+            btnMaintenanceHistory.Location = new Point(0, 135);
             btnMaintenanceHistory.Name = "btnMaintenanceHistory";
-            btnMaintenanceHistory.Size = new Size(580, 50);
+            btnMaintenanceHistory.Size = new Size(580, 135);
             btnMaintenanceHistory.TabIndex = 5;
             btnMaintenanceHistory.Text = "Maintenance History";
             btnMaintenanceHistory.UseVisualStyleBackColor = true;
@@ -65,7 +65,7 @@
             btnMaintenance.Dock = DockStyle.Top;
             btnMaintenance.Location = new Point(0, 0);
             btnMaintenance.Name = "btnMaintenance";
-            btnMaintenance.Size = new Size(580, 50);
+            btnMaintenance.Size = new Size(580, 135);
             btnMaintenance.TabIndex = 4;
             btnMaintenance.Text = "Maintenance Management";
             btnMaintenance.UseVisualStyleBackColor = true;
@@ -87,7 +87,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { logoutToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(220, 42);
+            menuStrip1.Size = new Size(220, 40);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             menuStrip1.Click += logoutToolStripMenuItem_Click;
@@ -97,6 +97,7 @@
             logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
             logoutToolStripMenuItem.Size = new Size(109, 36);
             logoutToolStripMenuItem.Text = "Logout";
+            logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
             // 
             // DashboardEngineerForm
             // 

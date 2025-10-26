@@ -59,15 +59,16 @@
             cbTrips.Name = "cbTrips";
             cbTrips.Size = new Size(242, 40);
             cbTrips.TabIndex = 1;
+            cbTrips.SelectedIndexChanged += cbTrips_SelectedIndexChanged;
             cbTrips.Click += cbTrips_SelectedIndexChanged;
             // 
             // dataGridViewLogs
             // 
             dataGridViewLogs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewLogs.Location = new Point(12, 104);
+            dataGridViewLogs.Location = new Point(0, 237);
             dataGridViewLogs.Name = "dataGridViewLogs";
             dataGridViewLogs.RowHeadersWidth = 82;
-            dataGridViewLogs.Size = new Size(556, 500);
+            dataGridViewLogs.Size = new Size(573, 292);
             dataGridViewLogs.TabIndex = 2;
             // 
             // flowLayoutPanel1
@@ -154,6 +155,7 @@
             Controls.Add(label1);
             Name = "LogManagementForm";
             Text = "Log Management";
+            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)dataGridViewLogs).EndInit();
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();

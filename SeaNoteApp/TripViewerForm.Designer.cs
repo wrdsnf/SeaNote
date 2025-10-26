@@ -51,6 +51,7 @@
             Controls.Add(dataGridViewTrips);
             Name = "TripViewerForm";
             Text = "Trip Viewer (Read-Only)";
+            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)dataGridViewTrips).EndInit();
             ResumeLayout(false);
         }
