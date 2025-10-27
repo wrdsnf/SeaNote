@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             panelSidebar = new Panel();
-            menuStrip1 = new MenuStrip();
-            logoutToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip2 = new MenuStrip();
+            toolStripMenuItem1 = new ToolStripMenuItem();
             panelContent = new Panel();
             btnExportReport = new Button();
             btnMaintenanceAdmin = new Button();
@@ -39,37 +39,39 @@
             btnTripManagement = new Button();
             btnShipManagement = new Button();
             panelSidebar.SuspendLayout();
-            menuStrip1.SuspendLayout();
+            menuStrip2.SuspendLayout();
             panelContent.SuspendLayout();
             SuspendLayout();
             // 
             // panelSidebar
             // 
             panelSidebar.BackColor = Color.DimGray;
-            panelSidebar.Controls.Add(menuStrip1);
+            panelSidebar.Controls.Add(menuStrip2);
             panelSidebar.Dock = DockStyle.Left;
             panelSidebar.Location = new Point(0, 0);
+            panelSidebar.Margin = new Padding(2, 1, 2, 1);
             panelSidebar.Name = "panelSidebar";
-            panelSidebar.Size = new Size(220, 450);
+            panelSidebar.Size = new Size(118, 414);
             panelSidebar.TabIndex = 0;
             // 
-            // menuStrip1
+            // menuStrip2
             // 
-            menuStrip1.ImageScalingSize = new Size(32, 32);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { logoutToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(220, 40);
-            menuStrip1.TabIndex = 0;
-            menuStrip1.Text = "menuStrip1";
-            menuStrip1.Click += logoutToolStripMenuItem_Click;
+            menuStrip2.ImageScalingSize = new Size(32, 32);
+            menuStrip2.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1 });
+            menuStrip2.Location = new Point(0, 0);
+            menuStrip2.Name = "menuStrip2";
+            menuStrip2.Padding = new Padding(3, 1, 0, 1);
+            menuStrip2.Size = new Size(118, 24);
+            menuStrip2.TabIndex = 1;
+            menuStrip2.Text = "menuStrip2";
+            menuStrip2.ItemClicked += menuStrip2_ItemClicked;
             // 
-            // logoutToolStripMenuItem
+            // toolStripMenuItem1
             // 
-            logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            logoutToolStripMenuItem.Size = new Size(109, 36);
-            logoutToolStripMenuItem.Text = "Logout";
-            logoutToolStripMenuItem.Click += logoutToolStripMenuItem_Click;
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new Size(57, 22);
+            toolStripMenuItem1.Text = "Logout";
+            toolStripMenuItem1.Click += toolStripMenuItem1_Click;
             // 
             // panelContent
             // 
@@ -80,17 +82,19 @@
             panelContent.Controls.Add(btnTripManagement);
             panelContent.Controls.Add(btnShipManagement);
             panelContent.Dock = DockStyle.Fill;
-            panelContent.Location = new Point(220, 0);
+            panelContent.Location = new Point(118, 0);
+            panelContent.Margin = new Padding(2, 1, 2, 1);
             panelContent.Name = "panelContent";
-            panelContent.Size = new Size(580, 450);
+            panelContent.Size = new Size(313, 414);
             panelContent.TabIndex = 1;
             // 
             // btnExportReport
             // 
             btnExportReport.Dock = DockStyle.Top;
-            btnExportReport.Location = new Point(0, 675);
+            btnExportReport.Location = new Point(0, 315);
+            btnExportReport.Margin = new Padding(2, 1, 2, 1);
             btnExportReport.Name = "btnExportReport";
-            btnExportReport.Size = new Size(580, 135);
+            btnExportReport.Size = new Size(313, 63);
             btnExportReport.TabIndex = 5;
             btnExportReport.Text = "Export Reports";
             btnExportReport.UseVisualStyleBackColor = true;
@@ -99,9 +103,10 @@
             // btnMaintenanceAdmin
             // 
             btnMaintenanceAdmin.Dock = DockStyle.Top;
-            btnMaintenanceAdmin.Location = new Point(0, 540);
+            btnMaintenanceAdmin.Location = new Point(0, 252);
+            btnMaintenanceAdmin.Margin = new Padding(2, 1, 2, 1);
             btnMaintenanceAdmin.Name = "btnMaintenanceAdmin";
-            btnMaintenanceAdmin.Size = new Size(580, 135);
+            btnMaintenanceAdmin.Size = new Size(313, 63);
             btnMaintenanceAdmin.TabIndex = 4;
             btnMaintenanceAdmin.Text = "Manage Maintenance";
             btnMaintenanceAdmin.UseVisualStyleBackColor = true;
@@ -110,9 +115,10 @@
             // btnLogManagement
             // 
             btnLogManagement.Dock = DockStyle.Top;
-            btnLogManagement.Location = new Point(0, 405);
+            btnLogManagement.Location = new Point(0, 189);
+            btnLogManagement.Margin = new Padding(2, 1, 2, 1);
             btnLogManagement.Name = "btnLogManagement";
-            btnLogManagement.Size = new Size(580, 135);
+            btnLogManagement.Size = new Size(313, 63);
             btnLogManagement.TabIndex = 3;
             btnLogManagement.Text = "Manage Logs";
             btnLogManagement.UseVisualStyleBackColor = true;
@@ -121,9 +127,10 @@
             // btnTaskManagement
             // 
             btnTaskManagement.Dock = DockStyle.Top;
-            btnTaskManagement.Location = new Point(0, 270);
+            btnTaskManagement.Location = new Point(0, 126);
+            btnTaskManagement.Margin = new Padding(2, 1, 2, 1);
             btnTaskManagement.Name = "btnTaskManagement";
-            btnTaskManagement.Size = new Size(580, 135);
+            btnTaskManagement.Size = new Size(313, 63);
             btnTaskManagement.TabIndex = 2;
             btnTaskManagement.Text = "Manage Tasks";
             btnTaskManagement.UseVisualStyleBackColor = true;
@@ -132,9 +139,10 @@
             // btnTripManagement
             // 
             btnTripManagement.Dock = DockStyle.Top;
-            btnTripManagement.Location = new Point(0, 135);
+            btnTripManagement.Location = new Point(0, 63);
+            btnTripManagement.Margin = new Padding(2, 1, 2, 1);
             btnTripManagement.Name = "btnTripManagement";
-            btnTripManagement.Size = new Size(580, 135);
+            btnTripManagement.Size = new Size(313, 63);
             btnTripManagement.TabIndex = 1;
             btnTripManagement.Text = "Manage Trips";
             btnTripManagement.UseVisualStyleBackColor = true;
@@ -144,8 +152,9 @@
             // 
             btnShipManagement.Dock = DockStyle.Top;
             btnShipManagement.Location = new Point(0, 0);
+            btnShipManagement.Margin = new Padding(2, 1, 2, 1);
             btnShipManagement.Name = "btnShipManagement";
-            btnShipManagement.Size = new Size(580, 135);
+            btnShipManagement.Size = new Size(313, 63);
             btnShipManagement.TabIndex = 0;
             btnShipManagement.Text = "Manage Ships";
             btnShipManagement.UseVisualStyleBackColor = true;
@@ -153,20 +162,20 @@
             // 
             // DashboardAdminForm
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(431, 414);
             Controls.Add(panelContent);
             Controls.Add(panelSidebar);
-            MainMenuStrip = menuStrip1;
+            Margin = new Padding(2, 1, 2, 1);
             Name = "DashboardAdminForm";
             Text = "Admin Dashboard";
             WindowState = FormWindowState.Maximized;
             panelSidebar.ResumeLayout(false);
             panelSidebar.PerformLayout();
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
+            menuStrip2.ResumeLayout(false);
+            menuStrip2.PerformLayout();
             panelContent.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -181,7 +190,7 @@
         private Button btnTaskManagement;
         private Button btnTripManagement;
         private Button btnShipManagement;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem logoutToolStripMenuItem;
+        private MenuStrip menuStrip2;
+        private ToolStripMenuItem toolStripMenuItem1;
     }
 }
