@@ -13,7 +13,7 @@ namespace SeaNoteApp
 
         private void btnMaintenance_Click(object sender, EventArgs e)
         {
-            new MaintenanceEngineerForm().Show();
+            new AddMaintenanceEngineerForm().Show();
         }
 
         private void btnMaintenanceHistory_Click(object sender, EventArgs e)
