@@ -13,7 +13,7 @@ namespace SeaNoteApp
 
         private void btnMaintenance_Click(object sender, EventArgs e)
         {
-            new MaintenanceEngineerForm().Show();
+            new AddMaintenanceEngineerForm().Show();
         }
 
         private void btnMaintenanceHistory_Click(object sender, EventArgs e)
@@ -33,6 +33,11 @@ namespace SeaNoteApp
                 new LoginPage().Show();
             }
             this.Close();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

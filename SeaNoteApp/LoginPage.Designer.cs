@@ -180,6 +180,7 @@
             Margin = new Padding(2, 2, 2, 2);
             Name = "LoginPage";
             Text = "SeaNote Login";
+            Load += LoginPage_Load;
             ResumeLayout(false);
             PerformLayout();
         }

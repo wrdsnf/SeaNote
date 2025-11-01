@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             panelSidebar = new Panel();
-            menuStrip1 = new MenuStrip();
-            logoutToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip2 = new MenuStrip();
+            toolStripMenuItem1 = new ToolStripMenuItem();
             panelContent = new Panel();
             btnExportReport = new Button();
             btnMaintenanceAdmin = new Button();
@@ -40,14 +40,14 @@
             btnShipManagement = new Button();
             btnUserManagement = new Button();
             panelSidebar.SuspendLayout();
-            menuStrip1.SuspendLayout();
+            menuStrip2.SuspendLayout();
             panelContent.SuspendLayout();
             SuspendLayout();
             // 
             // panelSidebar
             // 
             panelSidebar.BackColor = Color.DimGray;
-            panelSidebar.Controls.Add(menuStrip1);
+            panelSidebar.Controls.Add(menuStrip2);
             panelSidebar.Dock = DockStyle.Left;
             panelSidebar.Location = new Point(0, 0);
             panelSidebar.Margin = new Padding(2, 2, 2, 2);
@@ -55,7 +55,7 @@
             panelSidebar.Size = new Size(135, 615);
             panelSidebar.TabIndex = 0;
             // 
-            // menuStrip1
+            // menuStrip2
             // 
             menuStrip1.ImageScalingSize = new Size(32, 32);
             menuStrip1.Items.AddRange(new ToolStripItem[] { logoutToolStripMenuItem });
@@ -67,7 +67,7 @@
             menuStrip1.Text = "menuStrip1";
             menuStrip1.Click += logoutToolStripMenuItem_Click;
             // 
-            // logoutToolStripMenuItem
+            // toolStripMenuItem1
             // 
             logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
             logoutToolStripMenuItem.Size = new Size(70, 24);
@@ -189,8 +189,8 @@
             WindowState = FormWindowState.Maximized;
             panelSidebar.ResumeLayout(false);
             panelSidebar.PerformLayout();
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
+            menuStrip2.ResumeLayout(false);
+            menuStrip2.PerformLayout();
             panelContent.ResumeLayout(false);
             ResumeLayout(false);
         }
