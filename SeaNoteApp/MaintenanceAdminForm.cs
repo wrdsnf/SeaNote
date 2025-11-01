@@ -23,7 +23,7 @@ namespace SeaNoteApp
         {
             dataGridViewMaint.DataSource = null;
             // Ambil data dari list global di form Engineer
-            dataGridViewMaint.DataSource = MaintenanceEngineerForm.globalDummyMaintenance.ToList();
+            dataGridViewMaint.DataSource = AddMaintenanceEngineerForm.globalDummyMaintenance.ToList();
 
             if (dataGridViewMaint.Columns.Count > 0)
             {
@@ -72,7 +72,7 @@ namespace SeaNoteApp
 
                 Maintenance newMaint = new Maintenance
                 {
-                    MaintenanceID = MaintenanceEngineerForm.globalDummyMaintenance.Count > 0 ? MaintenanceEngineerForm.globalDummyMaintenance.Max(m => m.MaintenanceID) + 1 : 1,
+                    MaintenanceID = AddMaintenanceEngineerForm.globalDummyMaintenance.Count > 0 ? AddMaintenanceEngineerForm.globalDummyMaintenance.Max(m => m.MaintenanceID) + 1 : 1,
                     ShipID = selectedShip.ShipID,
                     ShipName = selectedShip.Name,
                     Description = tbDescription.Text,
@@ -80,7 +80,7 @@ namespace SeaNoteApp
                     Status = cbStatus.SelectedItem.ToString() ?? "Pending"
                 };
 
-                MaintenanceEngineerForm.globalDummyMaintenance.Add(newMaint);
+                AddMaintenanceEngineerForm.globalDummyMaintenance.Add(newMaint);
                 LoadMaintenanceToGrid();
                 ClearMaintForm();
             }
@@ -92,7 +92,7 @@ namespace SeaNoteApp
             if (selectedMaintId == -1) { MessageBox.Show("Pilih data dulu"); return; }
             try
             {
-                Maintenance? maintToUpdate = MaintenanceEngineerForm.globalDummyMaintenance.Find(m => m.MaintenanceID == selectedMaintId);
+                Maintenance? maintToUpdate = AddMaintenanceEngineerForm.globalDummyMaintenance.Find(m => m.MaintenanceID == selectedMaintId);
                 if (maintToUpdate != null)
                 {
                     // Admin bisa update semua
@@ -115,10 +115,10 @@ namespace SeaNoteApp
             var confirmResult = MessageBox.Show("Yakin mau hapus data ini?", "Konfirmasi Hapus", MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)
             {
-                Maintenance? maintToDelete = MaintenanceEngineerForm.globalDummyMaintenance.Find(m => m.MaintenanceID == selectedMaintId);
+                Maintenance? maintToDelete = AddMaintenanceEngineerForm.globalDummyMaintenance.Find(m => m.MaintenanceID == selectedMaintId);
                 if (maintToDelete != null)
                 {
-                    MaintenanceEngineerForm.globalDummyMaintenance.Remove(maintToDelete);
+                    AddMaintenanceEngineerForm.globalDummyMaintenance.Remove(maintToDelete);
                 }
                 LoadMaintenanceToGrid();
                 ClearMaintForm();

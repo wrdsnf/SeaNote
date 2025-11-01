@@ -51,98 +51,110 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(70, 59);
+            label1.Location = new Point(38, 28);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(144, 32);
+            label1.Size = new Size(71, 15);
             label1.TabIndex = 0;
             label1.Text = "Ship Name :";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(70, 114);
+            label2.Location = new Point(38, 53);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(70, 32);
+            label2.Size = new Size(35, 15);
             label2.TabIndex = 1;
             label2.Text = "Year :";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(70, 168);
+            label3.Location = new Point(38, 79);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
             label3.RightToLeft = RightToLeft.No;
-            label3.Size = new Size(150, 32);
+            label3.Size = new Size(77, 15);
             label3.TabIndex = 2;
             label3.Text = "Capacity (T) :";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(70, 224);
+            label4.Location = new Point(38, 105);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(103, 32);
+            label4.Size = new Size(52, 15);
             label4.TabIndex = 3;
             label4.Text = "Fuel (L) :";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(70, 277);
+            label5.Location = new Point(38, 130);
+            label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
-            label5.Size = new Size(123, 32);
+            label5.Size = new Size(62, 15);
             label5.TabIndex = 4;
             label5.Text = "Total Trip :";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(70, 331);
+            label6.Location = new Point(38, 155);
+            label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new Size(213, 32);
+            label6.Size = new Size(106, 15);
             label6.TabIndex = 5;
             label6.Text = "Last Maintenance :";
             // 
             // tbShipName
             // 
-            tbShipName.Location = new Point(305, 56);
+            tbShipName.Location = new Point(164, 26);
+            tbShipName.Margin = new Padding(2, 1, 2, 1);
             tbShipName.Name = "tbShipName";
-            tbShipName.Size = new Size(481, 39);
+            tbShipName.Size = new Size(261, 23);
             tbShipName.TabIndex = 6;
             // 
             // tbShipYear
             // 
-            tbShipYear.Location = new Point(305, 111);
+            tbShipYear.Location = new Point(164, 52);
+            tbShipYear.Margin = new Padding(2, 1, 2, 1);
             tbShipYear.Name = "tbShipYear";
-            tbShipYear.Size = new Size(481, 39);
+            tbShipYear.Size = new Size(261, 23);
             tbShipYear.TabIndex = 7;
             // 
             // tbShipCapacity
             // 
-            tbShipCapacity.Location = new Point(305, 165);
+            tbShipCapacity.Location = new Point(164, 77);
+            tbShipCapacity.Margin = new Padding(2, 1, 2, 1);
             tbShipCapacity.Name = "tbShipCapacity";
-            tbShipCapacity.Size = new Size(481, 39);
+            tbShipCapacity.Size = new Size(261, 23);
             tbShipCapacity.TabIndex = 8;
             // 
             // tbShipFuel
             // 
-            tbShipFuel.Location = new Point(305, 221);
+            tbShipFuel.Location = new Point(164, 104);
+            tbShipFuel.Margin = new Padding(2, 1, 2, 1);
             tbShipFuel.Name = "tbShipFuel";
-            tbShipFuel.Size = new Size(481, 39);
+            tbShipFuel.Size = new Size(261, 23);
             tbShipFuel.TabIndex = 9;
             // 
             // tbShipTotalTrip
             // 
-            tbShipTotalTrip.Location = new Point(305, 274);
+            tbShipTotalTrip.Location = new Point(164, 128);
+            tbShipTotalTrip.Margin = new Padding(2, 1, 2, 1);
             tbShipTotalTrip.Name = "tbShipTotalTrip";
-            tbShipTotalTrip.Size = new Size(481, 39);
+            tbShipTotalTrip.Size = new Size(261, 23);
             tbShipTotalTrip.TabIndex = 10;
             // 
             // dtpMaintenance
             // 
-            dtpMaintenance.Location = new Point(305, 331);
+            dtpMaintenance.Location = new Point(164, 155);
+            dtpMaintenance.Margin = new Padding(2, 1, 2, 1);
             dtpMaintenance.Name = "dtpMaintenance";
-            dtpMaintenance.Size = new Size(481, 39);
+            dtpMaintenance.Size = new Size(261, 23);
             dtpMaintenance.TabIndex = 11;
             // 
             // btnAdd
@@ -150,9 +162,10 @@
             btnAdd.BackColor = Color.DodgerBlue;
             btnAdd.FlatStyle = FlatStyle.Flat;
             btnAdd.ForeColor = Color.White;
-            btnAdd.Location = new Point(70, 413);
+            btnAdd.Location = new Point(38, 194);
+            btnAdd.Margin = new Padding(2, 1, 2, 1);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(150, 46);
+            btnAdd.Size = new Size(81, 22);
             btnAdd.TabIndex = 12;
             btnAdd.Text = "Add New";
             btnAdd.UseVisualStyleBackColor = false;
@@ -163,9 +176,10 @@
             btnUpdate.BackColor = Color.Gainsboro;
             btnUpdate.FlatStyle = FlatStyle.Flat;
             btnUpdate.ForeColor = Color.Black;
-            btnUpdate.Location = new Point(258, 413);
+            btnUpdate.Location = new Point(139, 194);
+            btnUpdate.Margin = new Padding(2, 1, 2, 1);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(150, 46);
+            btnUpdate.Size = new Size(81, 22);
             btnUpdate.TabIndex = 13;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
@@ -176,9 +190,10 @@
             btnDelete.BackColor = Color.Tomato;
             btnDelete.FlatStyle = FlatStyle.Flat;
             btnDelete.ForeColor = Color.White;
-            btnDelete.Location = new Point(452, 413);
+            btnDelete.Location = new Point(243, 194);
+            btnDelete.Margin = new Padding(2, 1, 2, 1);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(150, 46);
+            btnDelete.Size = new Size(81, 22);
             btnDelete.TabIndex = 14;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = false;
@@ -189,9 +204,10 @@
             btnClear.BackColor = Color.Gainsboro;
             btnClear.FlatStyle = FlatStyle.Flat;
             btnClear.ForeColor = Color.Black;
-            btnClear.Location = new Point(636, 413);
+            btnClear.Location = new Point(342, 194);
+            btnClear.Margin = new Padding(2, 1, 2, 1);
             btnClear.Name = "btnClear";
-            btnClear.Size = new Size(150, 46);
+            btnClear.Size = new Size(81, 22);
             btnClear.TabIndex = 15;
             btnClear.Text = "Clear Form";
             btnClear.UseVisualStyleBackColor = false;
@@ -200,19 +216,21 @@
             // dataGridViewShips
             // 
             dataGridViewShips.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewShips.Location = new Point(24, 511);
+            dataGridViewShips.Dock = DockStyle.Bottom;
+            dataGridViewShips.Location = new Point(0, 244);
+            dataGridViewShips.Margin = new Padding(2, 1, 2, 1);
             dataGridViewShips.Name = "dataGridViewShips";
             dataGridViewShips.ReadOnly = true;
             dataGridViewShips.RowHeadersWidth = 82;
             dataGridViewShips.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewShips.Size = new Size(820, 350);
+            dataGridViewShips.Size = new Size(485, 107);
             dataGridViewShips.TabIndex = 16;
             // 
             // ShipManagementForm
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(874, 768);
+            ClientSize = new Size(485, 351);
             Controls.Add(dataGridViewShips);
             Controls.Add(btnClear);
             Controls.Add(btnDelete);
@@ -230,8 +248,10 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Margin = new Padding(2, 1, 2, 1);
             Name = "ShipManagementForm";
             Text = "Ship Management";
+            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)dataGridViewShips).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -40,6 +40,10 @@ namespace SeaNoteApp
         {
             new ExportReportForm().Show();
         }
+        private void btnUserManagement_Click(object sender, EventArgs e)
+        {
+            new UserManagementForm().Show();
+        }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -53,6 +57,21 @@ namespace SeaNoteApp
                 new LoginPage().Show();
             }
             this.Close();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            new ShipManagementForm().Show();
         }
     }
 }

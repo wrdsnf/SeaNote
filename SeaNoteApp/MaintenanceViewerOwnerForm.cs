@@ -17,7 +17,7 @@ namespace SeaNoteApp
         {
             // Owner liat semua status
             dataGridViewMaint.DataSource = null;
-            dataGridViewMaint.DataSource = MaintenanceEngineerForm.globalDummyMaintenance.ToList();
+            dataGridViewMaint.DataSource = AddMaintenanceEngineerForm.globalDummyMaintenance.ToList();
 
             if (dataGridViewMaint.Columns.Count > 0)
             {

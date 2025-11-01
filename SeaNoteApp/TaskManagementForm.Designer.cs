@@ -46,9 +46,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(47, 33);
+            label1.Location = new Point(25, 15);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(136, 32);
+            label1.Size = new Size(67, 15);
             label1.TabIndex = 0;
             label1.Text = "Select Trip :";
             // 
@@ -56,19 +57,21 @@
             // 
             cbTrips.DropDownStyle = ComboBoxStyle.DropDownList;
             cbTrips.FormattingEnabled = true;
-            cbTrips.Location = new Point(220, 30);
+            cbTrips.Location = new Point(118, 14);
+            cbTrips.Margin = new Padding(2, 1, 2, 1);
             cbTrips.Name = "cbTrips";
-            cbTrips.Size = new Size(242, 40);
+            cbTrips.Size = new Size(132, 23);
             cbTrips.TabIndex = 1;
             cbTrips.SelectedIndexChanged += cbTrips_SelectedIndexChanged;
             // 
             // dataGridViewTasks
             // 
             dataGridViewTasks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewTasks.Location = new Point(46, 114);
+            dataGridViewTasks.Location = new Point(0, 146);
+            dataGridViewTasks.Margin = new Padding(2, 1, 2, 1);
             dataGridViewTasks.Name = "dataGridViewTasks";
             dataGridViewTasks.RowHeadersWidth = 82;
-            dataGridViewTasks.Size = new Size(416, 300);
+            dataGridViewTasks.Size = new Size(379, 143);
             dataGridViewTasks.TabIndex = 2;
             // 
             // flowLayoutPanel1
@@ -81,59 +84,66 @@
             flowLayoutPanel1.Controls.Add(btnAddTask);
             flowLayoutPanel1.Controls.Add(btnUpdateTask);
             flowLayoutPanel1.Dock = DockStyle.Right;
-            flowLayoutPanel1.Location = new Point(674, 0);
+            flowLayoutPanel1.Location = new Point(381, 0);
+            flowLayoutPanel1.Margin = new Padding(2, 1, 2, 1);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(300, 533);
+            flowLayoutPanel1.Size = new Size(162, 289);
             flowLayoutPanel1.TabIndex = 3;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(3, 0);
+            label2.Location = new Point(2, 0);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(141, 32);
+            label2.Size = new Size(71, 15);
             label2.TabIndex = 4;
             label2.Text = "Task Name :";
             // 
             // tbTaskName
             // 
-            tbTaskName.Location = new Point(3, 35);
+            tbTaskName.Location = new Point(2, 16);
+            tbTaskName.Margin = new Padding(2, 1, 2, 1);
             tbTaskName.Name = "tbTaskName";
-            tbTaskName.Size = new Size(200, 39);
+            tbTaskName.Size = new Size(110, 23);
             tbTaskName.TabIndex = 6;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(3, 77);
+            label3.Location = new Point(2, 40);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(147, 32);
+            label3.Size = new Size(73, 15);
             label3.TabIndex = 5;
             label3.Text = "Description :";
             // 
             // tbTaskDesc
             // 
-            tbTaskDesc.Location = new Point(3, 112);
+            tbTaskDesc.Location = new Point(2, 56);
+            tbTaskDesc.Margin = new Padding(2, 1, 2, 1);
             tbTaskDesc.Multiline = true;
             tbTaskDesc.Name = "tbTaskDesc";
-            tbTaskDesc.Size = new Size(200, 39);
+            tbTaskDesc.Size = new Size(110, 20);
             tbTaskDesc.TabIndex = 7;
             // 
             // checkCompleted
             // 
             checkCompleted.AutoSize = true;
-            checkCompleted.Location = new Point(3, 157);
+            checkCompleted.Location = new Point(2, 78);
+            checkCompleted.Margin = new Padding(2, 1, 2, 1);
             checkCompleted.Name = "checkCompleted";
-            checkCompleted.Size = new Size(187, 36);
+            checkCompleted.Size = new Size(96, 19);
             checkCompleted.TabIndex = 8;
             checkCompleted.Text = "is Completed";
             checkCompleted.UseVisualStyleBackColor = true;
             // 
             // btnAddTask
             // 
-            btnAddTask.Location = new Point(3, 199);
+            btnAddTask.Location = new Point(2, 99);
+            btnAddTask.Margin = new Padding(2, 1, 2, 1);
             btnAddTask.Name = "btnAddTask";
-            btnAddTask.Size = new Size(150, 46);
+            btnAddTask.Size = new Size(81, 22);
             btnAddTask.TabIndex = 9;
             btnAddTask.Text = "Add Task";
             btnAddTask.UseVisualStyleBackColor = true;
@@ -141,9 +151,10 @@
             // 
             // btnUpdateTask
             // 
-            btnUpdateTask.Location = new Point(3, 251);
+            btnUpdateTask.Location = new Point(2, 123);
+            btnUpdateTask.Margin = new Padding(2, 1, 2, 1);
             btnUpdateTask.Name = "btnUpdateTask";
-            btnUpdateTask.Size = new Size(150, 46);
+            btnUpdateTask.Size = new Size(81, 22);
             btnUpdateTask.TabIndex = 10;
             btnUpdateTask.Text = "Update Task";
             btnUpdateTask.UseVisualStyleBackColor = true;
@@ -151,14 +162,15 @@
             // 
             // TaskManagementForm
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(974, 533);
+            ClientSize = new Size(543, 289);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(dataGridViewTasks);
             Controls.Add(cbTrips);
             Controls.Add(label1);
+            Margin = new Padding(2, 1, 2, 1);
             Name = "TaskManagementForm";
             Text = "Task Management";
             WindowState = FormWindowState.Maximized;

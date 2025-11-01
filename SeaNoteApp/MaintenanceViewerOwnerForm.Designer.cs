@@ -51,6 +51,7 @@
             Controls.Add(dataGridViewMaint);
             Name = "MaintenanceViewerOwnerForm";
             Text = "Maintenance Viewer (Owner)";
+            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)dataGridViewMaint).EndInit();
             ResumeLayout(false);
         }

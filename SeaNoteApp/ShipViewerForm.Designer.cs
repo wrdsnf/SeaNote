@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             dataGridViewShips = new DataGridView();
-            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewShips).BeginInit();
             SuspendLayout();
             // 
@@ -45,35 +44,21 @@
             dataGridViewShips.Size = new Size(874, 529);
             dataGridViewShips.TabIndex = 0;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Dock = DockStyle.Top;
-            label1.Font = new Font("Segoe UI", 16F);
-            label1.Location = new Point(0, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(547, 59);
-            label1.TabIndex = 1;
-            label1.Text = "DAFTAR KAPAL (Read-Only)";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // ShipViewerForm
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(874, 529);
-            Controls.Add(label1);
             Controls.Add(dataGridViewShips);
             Name = "ShipViewerForm";
             Text = "View All Ships";
+            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)dataGridViewShips).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private DataGridView dataGridViewShips;
-        private Label label1;
     }
 }
