@@ -232,5 +232,15 @@ namespace SeaNoteApp
             var f = new LogManagementForm(selectedTripId);
             f.ShowDialog();
         }
+
+        private void labelKapal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
