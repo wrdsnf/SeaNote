@@ -169,7 +169,7 @@ namespace SeaNoteApp
 
         private void BtnUpdateMaint_Click(object sender, EventArgs e)
         {
-            if (selectedMaintId <= 0) { MessageBox.Show("Pilih data dulu"); return; } // Ganti ke <= 0
+            if (selectedMaintId <= 0) { MessageBox.Show("Pilih data dulu"); return; } 
 
             try
             {
@@ -205,7 +205,7 @@ namespace SeaNoteApp
 
         private void BtnDeleteMaint_Click(object sender, EventArgs e)
         {
-            if (selectedMaintId <= 0) { MessageBox.Show("Pilih data dulu"); return; } // Ganti ke <= 0
+            if (selectedMaintId <= 0) { MessageBox.Show("Pilih data dulu"); return; }
 
             if (MessageBox.Show("Yakin mau hapus data maintenance ini?", "Konfirmasi Hapus",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
@@ -218,7 +218,6 @@ namespace SeaNoteApp
 
                 var sql = "DELETE FROM public.maintenance WHERE maintenance_id = @maint_id";
                 using var cmd = new NpgsqlCommand(sql, conn);
-                // DIGANTI: dari Integer ke Bigint
                 cmd.Parameters.Add(new NpgsqlParameter("maint_id", NpgsqlDbType.Bigint) { Value = selectedMaintId });
 
                 cmd.ExecuteNonQuery();

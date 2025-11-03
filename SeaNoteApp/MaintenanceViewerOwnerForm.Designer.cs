@@ -17,34 +17,38 @@
 
         private void InitializeComponent()
         {
-            this.dataGridViewMaint = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMaint)).BeginInit();
-            this.SuspendLayout();
+            dataGridViewMaint = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewMaint).BeginInit();
+            SuspendLayout();
             // 
             // dataGridViewMaint
             // 
-            this.dataGridViewMaint.AllowUserToAddRows = false;
-            this.dataGridViewMaint.AllowUserToDeleteRows = false;
-            this.dataGridViewMaint.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewMaint.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewMaint.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewMaint.Name = "dataGridViewMaint";
-            this.dataGridViewMaint.ReadOnly = true;
-            this.dataGridViewMaint.RowTemplate.Height = 25;
-            this.dataGridViewMaint.Size = new System.Drawing.Size(784, 561);
-            this.dataGridViewMaint.TabIndex = 0;
+            dataGridViewMaint.AllowUserToAddRows = false;
+            dataGridViewMaint.AllowUserToDeleteRows = false;
+            dataGridViewMaint.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewMaint.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewMaint.Dock = DockStyle.Fill;
+            dataGridViewMaint.Location = new Point(0, 0);
+            dataGridViewMaint.Margin = new Padding(6, 6, 6, 6);
+            dataGridViewMaint.Name = "dataGridViewMaint";
+            dataGridViewMaint.ReadOnly = true;
+            dataGridViewMaint.RowHeadersWidth = 82;
+            dataGridViewMaint.RowTemplate.Height = 25;
+            dataGridViewMaint.Size = new Size(1456, 1197);
+            dataGridViewMaint.TabIndex = 0;
             // 
             // MaintenanceViewerOwnerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.dataGridViewMaint);
-            this.Name = "MaintenanceViewerOwnerForm";
-            this.Text = "Maintenance Viewer (Owner)";
-            this.Load += new System.EventHandler(this.MaintenanceViewerOwnerForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMaint)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1456, 1197);
+            Controls.Add(dataGridViewMaint);
+            Margin = new Padding(6, 6, 6, 6);
+            Name = "MaintenanceViewerOwnerForm";
+            Text = "Maintenance Viewer (Owner)";
+            Load += MaintenanceViewerOwnerForm_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridViewMaint).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion

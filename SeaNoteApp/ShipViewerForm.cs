@@ -58,20 +58,20 @@ namespace SeaNoteApp
             catch (Exception ex) { MessageBox.Show("Gagal ambil data kapal: " + ex.Message); }
         }
 
-        private void dataGridViewShips_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0) return;
-            var row = dataGridViewShips.Rows[e.RowIndex];
-            selectedShipId = DbUtils.SafeGetLong(row.Cells["KapalId"].Value);
+        //private void dataGridViewShips_CellClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    if (e.RowIndex < 0) return;
+        //    var row = dataGridViewShips.Rows[e.RowIndex];
+        //    selectedShipId = DbUtils.SafeGetLong(row.Cells["KapalId"].Value);
 
-            tbShipName.Text = row.Cells["Name"].Value?.ToString() ?? "";
-            numYear.Value = row.Cells["Year"].Value == DBNull.Value ? 2000 : Convert.ToDecimal(row.Cells["Year"].Value ?? 2000);
-            numCapacity.Value = row.Cells["Capacity"].Value == DBNull.Value ? 0 : Convert.ToDecimal(row.Cells["Capacity"].Value ?? 0);
-            tbFuel.Text = row.Cells["Fuel"].Value?.ToString() ?? "";
-            numTotalTrip.Value = row.Cells["TotalTrip"].Value == DBNull.Value ? 0 : Convert.ToDecimal(row.Cells["TotalTrip"].Value ?? 0);
+        //    tbShipName.Text = row.Cells["Name"].Value?.ToString() ?? "";
+        //    numYear.Value = row.Cells["Year"].Value == DBNull.Value ? 2000 : Convert.ToDecimal(row.Cells["Year"].Value ?? 2000);
+        //    numCapacity.Value = row.Cells["Capacity"].Value == DBNull.Value ? 0 : Convert.ToDecimal(row.Cells["Capacity"].Value ?? 0);
+        //    tbFuel.Text = row.Cells["Fuel"].Value?.ToString() ?? "";
+        //    numTotalTrip.Value = row.Cells["TotalTrip"].Value == DBNull.Value ? 0 : Convert.ToDecimal(row.Cells["TotalTrip"].Value ?? 0);
 
-            dataGridViewShips.ClearSelection();
-            row.Selected = true;
-        }
+        //    dataGridViewShips.ClearSelection();
+        //    row.Selected = true;
+        //}
     }
 }

@@ -116,7 +116,7 @@ namespace SeaNoteApp
         {
             if (string.IsNullOrWhiteSpace(tbUsername.Text))
             {
-                MessageBox.Show("username wajib diisi");
+                MessageBox.Show("Username wajib diisi");
                 return;
             }
 
@@ -151,13 +151,13 @@ namespace SeaNoteApp
 
                 cmd.ExecuteNonQuery();
 
-                MessageBox.Show("user baru berhasil ditambah (pass default: changeme)");
+                MessageBox.Show("User baru berhasil ditambah (pass default: changeme)");
                 LoadUsersToGrid();
                 ClearUserForm();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("gagal tambah user: " + ex.Message);
+                MessageBox.Show("Gagal tambah user: " + ex.Message);
             }
         }
 
@@ -165,7 +165,7 @@ namespace SeaNoteApp
         {
             if (selectedUserId == 0)
             {
-                MessageBox.Show("pilih user dulu");
+                MessageBox.Show("Pilih user dulu");
                 return;
             }
 
@@ -206,13 +206,13 @@ namespace SeaNoteApp
 
                 cmd.ExecuteNonQuery();
 
-                MessageBox.Show("data user berhasil di-update");
+                MessageBox.Show("Data user berhasil di-update");
                 LoadUsersToGrid();
                 ClearUserForm();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("gagal update user: " + ex.Message);
+                MessageBox.Show("Gagal update user: " + ex.Message);
             }
         }
 
@@ -220,11 +220,11 @@ namespace SeaNoteApp
         {
             if (selectedUserId == 0)
             {
-                MessageBox.Show("pilih user dulu");
+                MessageBox.Show("Pilih user dulu");
                 return;
             }
 
-            if (MessageBox.Show("yakin mau hapus user ini?", "konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            if (MessageBox.Show("Yakin mau hapus user ini?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                 return;
 
             try
@@ -235,20 +235,20 @@ namespace SeaNoteApp
                 cmd.Parameters.Add(new NpgsqlParameter("user_id", NpgsqlDbType.Bigint) { Value = selectedUserId });
                 cmd.ExecuteNonQuery();
 
-                MessageBox.Show("user berhasil dihapus");
+                MessageBox.Show("User berhasil dihapus");
                 LoadUsersToGrid();
                 ClearUserForm();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("gagal hapus user: " + ex.Message);
+                MessageBox.Show("Gagal hapus user: " + ex.Message);
             }
         }
 
         private void btnAssignRole_Click(object sender, EventArgs e)
         {
-            if (selectedUserId == 0) { MessageBox.Show("pilih user dulu"); return; }
-            if (cbRoles.SelectedItem == null) { MessageBox.Show("pilih role"); return; }
+            if (selectedUserId == 0) { MessageBox.Show("Pilih user dulu"); return; }
+            if (cbRoles.SelectedItem == null) { MessageBox.Show("Pilih role"); return; }
 
             try
             {
@@ -267,13 +267,13 @@ namespace SeaNoteApp
                 cmd.Parameters.Add(new NpgsqlParameter("user_id", NpgsqlDbType.Bigint) { Value = selectedUserId });
                 cmd.ExecuteNonQuery();
 
-                MessageBox.Show("role berhasil diassign");
+                MessageBox.Show("Role berhasil diassign");
                 LoadUsersToGrid();
                 ClearUserForm();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("gagal assign role: " + ex.Message);
+                MessageBox.Show("Gagal assign role: " + ex.Message);
             }
         }
     }

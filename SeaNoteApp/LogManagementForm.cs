@@ -1,9 +1,10 @@
-﻿using SeaNote.Models;
+﻿using Npgsql;
+using NpgsqlTypes;
+using SeaNote.Models;
 using System;
 using System.Collections.Generic;
+using System.Reflection.Emit;
 using System.Windows.Forms;
-using Npgsql;
-using NpgsqlTypes;
 
 namespace SeaNoteApp
 {
@@ -17,6 +18,7 @@ namespace SeaNoteApp
         {
             InitializeComponent();
             _currentTripId = tripId;
+            // Kita pake label3 buat nampilin info, jadi ini bisa dihapus/diganti
             this.Text = "Manage Logs for Trip ID: " + _currentTripId;
         }
 
@@ -66,6 +68,9 @@ namespace SeaNoteApp
             dtpTanggalLog.Value = DateTime.Now;
             selectedLogId = 0;
             dataGridViewLogs.ClearSelection();
+
+            // === KODE BUAT LABEL DINAMIS ===
+            label3.Text = "Logs for Trip ID: " + _currentTripId;
         }
 
         private void DataGridViewLogs_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -76,6 +81,9 @@ namespace SeaNoteApp
             tbJenisLog.Text = row.Cells["JenisLog"].Value?.ToString() ?? "";
             tbIsiLog.Text = row.Cells["IsiLog"].Value?.ToString() ?? "";
             dtpTanggalLog.Value = row.Cells["TanggalLog"].Value == DBNull.Value || row.Cells["TanggalLog"].Value == null ? DateTime.Now : Convert.ToDateTime(row.Cells["TanggalLog"].Value);
+
+            // === KODE BUAT LABEL DINAMIS ===
+            label3.Text = "Selected Log: " + (tbJenisLog.Text ?? "Log ID " + selectedLogId);
         }
 
         private void BtnAddLog_Click(object sender, EventArgs e)

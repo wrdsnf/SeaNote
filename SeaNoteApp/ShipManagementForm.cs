@@ -123,7 +123,7 @@ namespace SeaNoteApp
 
         private void btnUpdateShip_Click(object sender, EventArgs e)
         {
-            if (selectedShipId <= 0) { MessageBox.Show("Pilih kapal dulu"); return; } // Ganti ke <= 0
+            if (selectedShipId <= 0) { MessageBox.Show("Pilih kapal dulu"); return; }
             try
             {
                 using var conn = DbHelper.GetConnection();
