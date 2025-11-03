@@ -17,100 +17,115 @@
 
         private void InitializeComponent()
         {
-            this.dataGridViewReports = new System.Windows.Forms.DataGridView();
-            this.panelTop = new System.Windows.Forms.Panel();
-            this.btnFilter = new System.Windows.Forms.Button();
-            this.dtpTo = new System.Windows.Forms.DateTimePicker();
-            this.labelTo = new System.Windows.Forms.Label();
-            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
-            this.labelFrom = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReports)).BeginInit();
-            this.panelTop.SuspendLayout();
-            this.SuspendLayout();
+            dataGridViewReports = new DataGridView();
+            panelTop = new Panel();
+            btnFilter = new Button();
+            dtpTo = new DateTimePicker();
+            labelTo = new Label();
+            dtpFrom = new DateTimePicker();
+            labelFrom = new Label();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewReports).BeginInit();
+            panelTop.SuspendLayout();
+            SuspendLayout();
             // 
             // dataGridViewReports
             // 
-            this.dataGridViewReports.AllowUserToAddRows = false;
-            this.dataGridViewReports.AllowUserToDeleteRows = false;
-            this.dataGridViewReports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewReports.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewReports.Location = new System.Drawing.Point(0, 60);
-            this.dataGridViewReports.Name = "dataGridViewReports";
-            this.dataGridViewReports.ReadOnly = true;
-            this.dataGridViewReports.RowTemplate.Height = 25;
-            this.dataGridViewReports.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewReports.Size = new System.Drawing.Size(784, 501);
-            this.dataGridViewReports.TabIndex = 1;
+            dataGridViewReports.AllowUserToAddRows = false;
+            dataGridViewReports.AllowUserToDeleteRows = false;
+            dataGridViewReports.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewReports.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewReports.Dock = DockStyle.Fill;
+            dataGridViewReports.Location = new Point(0, 139);
+            dataGridViewReports.Margin = new Padding(6, 6, 6, 6);
+            dataGridViewReports.Name = "dataGridViewReports";
+            dataGridViewReports.ReadOnly = true;
+            dataGridViewReports.RowHeadersWidth = 82;
+            dataGridViewReports.RowTemplate.Height = 25;
+            dataGridViewReports.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewReports.Size = new Size(1336, 641);
+            dataGridViewReports.TabIndex = 1;
             // 
             // panelTop
             // 
-            this.panelTop.Controls.Add(this.btnFilter);
-            this.panelTop.Controls.Add(this.dtpTo);
-            this.panelTop.Controls.Add(this.labelTo);
-            this.panelTop.Controls.Add(this.dtpFrom);
-            this.panelTop.Controls.Add(this.labelFrom);
-            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(0, 0);
-            this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(784, 60);
-            this.panelTop.TabIndex = 0;
+            panelTop.Controls.Add(btnFilter);
+            panelTop.Controls.Add(dtpTo);
+            panelTop.Controls.Add(labelTo);
+            panelTop.Controls.Add(dtpFrom);
+            panelTop.Controls.Add(labelFrom);
+            panelTop.Dock = DockStyle.Top;
+            panelTop.Location = new Point(0, 0);
+            panelTop.Margin = new Padding(6, 6, 6, 6);
+            panelTop.Name = "panelTop";
+            panelTop.Size = new Size(1336, 139);
+            panelTop.TabIndex = 0;
             // 
             // btnFilter
             // 
-            this.btnFilter.Location = new System.Drawing.Point(490, 15);
-            this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(100, 30);
-            this.btnFilter.TabIndex = 4;
-            this.btnFilter.Text = "Filter Laporan";
-            this.btnFilter.UseVisualStyleBackColor = true;
-            this.btnFilter.Click += new System.EventHandler(this.BtnFilter_Click);
+            btnFilter.BackColor = Color.DodgerBlue;
+            btnFilter.FlatStyle = FlatStyle.Flat;
+            btnFilter.ForeColor = Color.White;
+            btnFilter.Location = new Point(986, 24);
+            btnFilter.Margin = new Padding(6, 6, 6, 6);
+            btnFilter.Name = "btnFilter";
+            btnFilter.Size = new Size(252, 86);
+            btnFilter.TabIndex = 4;
+            btnFilter.Text = "Filter Laporan";
+            btnFilter.UseVisualStyleBackColor = false;
+            btnFilter.Click += BtnFilter_Click;
             // 
             // dtpTo
             // 
-            this.dtpTo.Location = new System.Drawing.Point(280, 20);
-            this.dtpTo.Name = "dtpTo";
-            this.dtpTo.Size = new System.Drawing.Size(180, 23);
-            this.dtpTo.TabIndex = 3;
+            dtpTo.CalendarMonthBackground = Color.Transparent;
+            dtpTo.Location = new Point(591, 46);
+            dtpTo.Margin = new Padding(6, 6, 6, 6);
+            dtpTo.Name = "dtpTo";
+            dtpTo.Size = new Size(331, 39);
+            dtpTo.TabIndex = 3;
             // 
             // labelTo
             // 
-            this.labelTo.AutoSize = true;
-            this.labelTo.Location = new System.Drawing.Point(250, 24);
-            this.labelTo.Name = "labelTo";
-            this.labelTo.Size = new System.Drawing.Size(24, 15);
-            this.labelTo.TabIndex = 2;
-            this.labelTo.Text = "s/d";
+            labelTo.AutoSize = true;
+            labelTo.Location = new Point(532, 51);
+            labelTo.Margin = new Padding(6, 0, 6, 0);
+            labelTo.Name = "labelTo";
+            labelTo.Size = new Size(47, 32);
+            labelTo.TabIndex = 2;
+            labelTo.Text = "s/d";
             // 
             // dtpFrom
             // 
-            this.dtpFrom.Location = new System.Drawing.Point(60, 20);
-            this.dtpFrom.Name = "dtpFrom";
-            this.dtpFrom.Size = new System.Drawing.Size(180, 23);
-            this.dtpFrom.TabIndex = 1;
+            dtpFrom.CalendarMonthBackground = Color.Transparent;
+            dtpFrom.Location = new Point(189, 46);
+            dtpFrom.Margin = new Padding(6, 6, 6, 6);
+            dtpFrom.Name = "dtpFrom";
+            dtpFrom.Size = new Size(331, 39);
+            dtpFrom.TabIndex = 1;
             // 
             // labelFrom
             // 
-            this.labelFrom.AutoSize = true;
-            this.labelFrom.Location = new System.Drawing.Point(15, 24);
-            this.labelFrom.Name = "labelFrom";
-            this.labelFrom.Size = new System.Drawing.Size(39, 15);
-            this.labelFrom.TabIndex = 0;
-            this.labelFrom.Text = "Dari Tgl:";
+            labelFrom.AutoSize = true;
+            labelFrom.Location = new Point(28, 51);
+            labelFrom.Margin = new Padding(6, 0, 6, 0);
+            labelFrom.Name = "labelFrom";
+            labelFrom.Size = new Size(151, 32);
+            labelFrom.TabIndex = 0;
+            labelFrom.Text = "Dari Tanggal:";
             // 
             // ReportOwnerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.dataGridViewReports);
-            this.Controls.Add(this.panelTop);
-            this.Name = "ReportOwnerForm";
-            this.Text = "Laporan Trip (Owner)";
-            this.Load += new System.EventHandler(this.ReportOwnerForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReports)).EndInit();
-            this.panelTop.ResumeLayout(false);
-            this.panelTop.PerformLayout();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1336, 780);
+            Controls.Add(dataGridViewReports);
+            Controls.Add(panelTop);
+            Margin = new Padding(6, 6, 6, 6);
+            Name = "ReportOwnerForm";
+            Text = "Laporan Trip (Owner)";
+            Load += ReportOwnerForm_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridViewReports).EndInit();
+            panelTop.ResumeLayout(false);
+            panelTop.PerformLayout();
+            ResumeLayout(false);
 
         }
 

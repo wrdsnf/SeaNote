@@ -23,7 +23,7 @@ namespace SeaNoteApp
         private void TaskManagementForm_Load(object sender, EventArgs e)
         {
             LoadTasksToGrid();
-            ClearTaskForm();
+            ClearTaskForm(); // label3 bakal ke-set di sini pertama kali
         }
 
         private void LoadTasksToGrid()
@@ -69,16 +69,22 @@ namespace SeaNoteApp
             chkIsCompleted.Checked = false;
             selectedTaskId = 0;
             dataGridViewTasks.ClearSelection();
+
+            label3.Text = "Tasks for Trip ID: " + _currentTripId;
         }
 
         private void DataGridViewTasks_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
             var row = dataGridViewTasks.Rows[e.RowIndex];
+
             selectedTaskId = row.Cells["TaskId"].Value == DBNull.Value || row.Cells["TaskId"].Value == null ? 0L : Convert.ToInt64(row.Cells["TaskId"].Value);
             tbTaskName.Text = row.Cells["TaskName"].Value?.ToString() ?? "";
             tbTaskDescription.Text = row.Cells["Description"].Value?.ToString() ?? "";
             chkIsCompleted.Checked = row.Cells["IsCompleted"].Value == DBNull.Value ? false : Convert.ToBoolean(row.Cells["IsCompleted"].Value);
+
+            // Update label3 pake nama task yang lagi dipilih
+            label3.Text = "Selected Task: " + tbTaskName.Text;
         }
 
         private void BtnAddTask_Click(object sender, EventArgs e)
@@ -102,7 +108,7 @@ namespace SeaNoteApp
 
                 MessageBox.Show("Task baru berhasil ditambah!");
                 LoadTasksToGrid();
-                ClearTaskForm();
+                ClearTaskForm(); 
             }
             catch (Exception ex) { MessageBox.Show("Gagal nambah task: " + ex.Message); }
         }
@@ -130,7 +136,7 @@ namespace SeaNoteApp
 
                 MessageBox.Show("Data task berhasil di-update!");
                 LoadTasksToGrid();
-                ClearTaskForm();
+                ClearTaskForm(); 
             }
             catch (Exception ex) { MessageBox.Show("Gagal update task: " + ex.Message); }
         }

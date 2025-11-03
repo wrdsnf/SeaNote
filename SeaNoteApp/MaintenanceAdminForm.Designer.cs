@@ -40,10 +40,11 @@
             // 
             dataGridViewMaint.AllowUserToAddRows = false;
             dataGridViewMaint.AllowUserToDeleteRows = false;
+            dataGridViewMaint.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewMaint.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewMaint.Dock = DockStyle.Fill;
             dataGridViewMaint.Location = new Point(0, 0);
-            dataGridViewMaint.Margin = new Padding(6, 6, 6, 6);
+            dataGridViewMaint.Margin = new Padding(6);
             dataGridViewMaint.Name = "dataGridViewMaint";
             dataGridViewMaint.ReadOnly = true;
             dataGridViewMaint.RowHeadersWidth = 82;
@@ -68,9 +69,9 @@
             panelControls.Controls.Add(label1);
             panelControls.Controls.Add(cbKapal);
             panelControls.Controls.Add(label6);
-            panelControls.Dock = DockStyle.Right;
-            panelControls.Location = new Point(1270, 0);
-            panelControls.Margin = new Padding(6, 6, 6, 6);
+            panelControls.Dock = DockStyle.Left;
+            panelControls.Location = new Point(0, 0);
+            panelControls.Margin = new Padding(6);
             panelControls.Name = "panelControls";
             panelControls.Size = new Size(557, 1197);
             panelControls.TabIndex = 1;
@@ -81,7 +82,7 @@
             btnDeleteMaint.FlatStyle = FlatStyle.Flat;
             btnDeleteMaint.ForeColor = Color.White;
             btnDeleteMaint.Location = new Point(37, 768);
-            btnDeleteMaint.Margin = new Padding(6, 6, 6, 6);
+            btnDeleteMaint.Margin = new Padding(6);
             btnDeleteMaint.Name = "btnDeleteMaint";
             btnDeleteMaint.Size = new Size(483, 64);
             btnDeleteMaint.TabIndex = 12;
@@ -93,7 +94,7 @@
             // 
             btnUpdateMaint.FlatStyle = FlatStyle.Flat;
             btnUpdateMaint.Location = new Point(288, 683);
-            btnUpdateMaint.Margin = new Padding(6, 6, 6, 6);
+            btnUpdateMaint.Margin = new Padding(6);
             btnUpdateMaint.Name = "btnUpdateMaint";
             btnUpdateMaint.Size = new Size(232, 64);
             btnUpdateMaint.TabIndex = 11;
@@ -107,7 +108,7 @@
             btnAddMaint.FlatStyle = FlatStyle.Flat;
             btnAddMaint.ForeColor = Color.White;
             btnAddMaint.Location = new Point(37, 683);
-            btnAddMaint.Margin = new Padding(6, 6, 6, 6);
+            btnAddMaint.Margin = new Padding(6);
             btnAddMaint.Name = "btnAddMaint";
             btnAddMaint.Size = new Size(232, 64);
             btnAddMaint.TabIndex = 10;
@@ -120,7 +121,7 @@
             cbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             cbStatus.FormattingEnabled = true;
             cbStatus.Location = new Point(37, 597);
-            cbStatus.Margin = new Padding(6, 6, 6, 6);
+            cbStatus.Margin = new Padding(6);
             cbStatus.Name = "cbStatus";
             cbStatus.Size = new Size(479, 40);
             cbStatus.TabIndex = 9;
@@ -138,7 +139,7 @@
             // dtpMaintenanceDate
             // 
             dtpMaintenanceDate.Location = new Point(37, 491);
-            dtpMaintenanceDate.Margin = new Padding(6, 6, 6, 6);
+            dtpMaintenanceDate.Margin = new Padding(6);
             dtpMaintenanceDate.Name = "dtpMaintenanceDate";
             dtpMaintenanceDate.Size = new Size(479, 39);
             dtpMaintenanceDate.TabIndex = 7;
@@ -156,7 +157,7 @@
             // tbMaintDescription
             // 
             tbMaintDescription.Location = new Point(37, 299);
-            tbMaintDescription.Margin = new Padding(6, 6, 6, 6);
+            tbMaintDescription.Margin = new Padding(6);
             tbMaintDescription.Multiline = true;
             tbMaintDescription.Name = "tbMaintDescription";
             tbMaintDescription.Size = new Size(479, 123);
@@ -175,7 +176,7 @@
             // tbMaintTitle
             // 
             tbMaintTitle.Location = new Point(37, 192);
-            tbMaintTitle.Margin = new Padding(6, 6, 6, 6);
+            tbMaintTitle.Margin = new Padding(6);
             tbMaintTitle.Name = "tbMaintTitle";
             tbMaintTitle.Size = new Size(479, 39);
             tbMaintTitle.TabIndex = 3;
@@ -195,7 +196,7 @@
             cbKapal.DropDownStyle = ComboBoxStyle.DropDownList;
             cbKapal.FormattingEnabled = true;
             cbKapal.Location = new Point(37, 85);
-            cbKapal.Margin = new Padding(6, 6, 6, 6);
+            cbKapal.Margin = new Padding(6);
             cbKapal.Name = "cbKapal";
             cbKapal.Size = new Size(479, 40);
             cbKapal.TabIndex = 1;
@@ -217,7 +218,7 @@
             ClientSize = new Size(1827, 1197);
             Controls.Add(panelControls);
             Controls.Add(dataGridViewMaint);
-            Margin = new Padding(6, 6, 6, 6);
+            Margin = new Padding(6);
             Name = "MaintenanceAdminForm";
             Text = "Maintenance (Admin)";
             Load += MaintenanceAdminForm_Load;

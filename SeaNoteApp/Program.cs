@@ -13,8 +13,10 @@ namespace SeaNoteApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            //Application.VisualStyleState = System.Windows.Forms.VisualStyles.VisualStyleState.NoneEnabled;
 
-            Application.Run(new LoginPage());
+            Application.Run(new SplashScreenForm());
         }
     }
 }

@@ -82,7 +82,7 @@ namespace SeaNoteApp
             }
         }
 
-        private void btnSignUp_Click(object sender, EventArgs e)
+        private void lnkSignUp_Click(object sender, EventArgs e)
         {
             new SignUpForm().ShowDialog();
         }
@@ -90,6 +90,11 @@ namespace SeaNoteApp
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void lnkForgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new ForgotPasswordForm().ShowDialog();
         }
     }
 }

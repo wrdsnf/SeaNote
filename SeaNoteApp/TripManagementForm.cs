@@ -16,6 +16,8 @@ namespace SeaNoteApp
         public TripManagementForm()
         {
             InitializeComponent();
+
+            this.tableLayoutPanel1.SetRowSpan(this.dataGridViewTrips, 2);
         }
 
         private void TripManagementForm_Load(object sender, EventArgs e)
@@ -100,6 +102,7 @@ namespace SeaNoteApp
             selectedTripId = 0;
             dataGridViewTrips.ClearSelection();
 
+            // Tombol dimatiin di awal, baru nyala setelah user nge-klik trip di tabel
             btnManageTasks.Enabled = false;
             btnManageLogs.Enabled = false;
         }
@@ -108,7 +111,7 @@ namespace SeaNoteApp
         {
             if (e.RowIndex < 0) return;
             var row = dataGridViewTrips.Rows[e.RowIndex];
-            // safe convert
+
             selectedTripId = row.Cells["trip_id"].Value == DBNull.Value || row.Cells["trip_id"].Value == null
                 ? 0L
                 : Convert.ToInt64(row.Cells["trip_id"].Value);
@@ -128,12 +131,19 @@ namespace SeaNoteApp
             tbNakhoda.Text = row.Cells["nahkoda"].Value?.ToString() ?? "";
             tbNotes.Text = row.Cells["notes"].Value?.ToString() ?? "";
 
+            // Tombol dinyalain karena user udah milih trip
             btnManageTasks.Enabled = true;
             btnManageLogs.Enabled = true;
         }
 
         private void BtnAddTrip_Click(object sender, EventArgs e)
         {
+            if (cbKapal.SelectedValue == null)
+            {
+                MessageBox.Show("Pilih kapal dulu, bro.");
+                return;
+            }
+
             try
             {
                 using var conn = DbHelper.GetConnection();
@@ -144,7 +154,7 @@ namespace SeaNoteApp
                     VALUES 
                     (@kapal_id, @tgl_berangkat, @tgl_sampai, @titik, @nahkoda, @notes)";
                 using var cmd = new NpgsqlCommand(sql, conn);
-                cmd.Parameters.Add(new NpgsqlParameter("kapal_id", NpgsqlDbType.Bigint) { Value = cbKapal.SelectedValue == null ? (object)DBNull.Value : Convert.ToInt64(cbKapal.SelectedValue) });
+                cmd.Parameters.Add(new NpgsqlParameter("kapal_id", NpgsqlDbType.Bigint) { Value = Convert.ToInt64(cbKapal.SelectedValue) });
                 cmd.Parameters.AddWithValue("tgl_berangkat", dtpTanggalBerangkat.Value);
                 cmd.Parameters.AddWithValue("tgl_sampai", dtpTanggalSampai.Value);
                 cmd.Parameters.AddWithValue("titik", tbTitikBerangkat.Text ?? (object)DBNull.Value);
@@ -165,6 +175,8 @@ namespace SeaNoteApp
         private void BtnUpdateTrip_Click(object sender, EventArgs e)
         {
             if (selectedTripId == 0) { MessageBox.Show("Pilih trip dulu"); return; }
+            if (cbKapal.SelectedValue == null) { MessageBox.Show("Pilih kapal dulu, bro."); return; }
+
             try
             {
                 using var conn = DbHelper.GetConnection();
@@ -176,7 +188,7 @@ namespace SeaNoteApp
                         nahkoda = @nahkoda, notes = @notes
                     WHERE trip_id = @trip_id";
                 using var cmd = new NpgsqlCommand(sql, conn);
-                cmd.Parameters.Add(new NpgsqlParameter("kapal_id", NpgsqlDbType.Bigint) { Value = cbKapal.SelectedValue == null ? (object)DBNull.Value : Convert.ToInt64(cbKapal.SelectedValue) });
+                cmd.Parameters.Add(new NpgsqlParameter("kapal_id", NpgsqlDbType.Bigint) { Value = Convert.ToInt64(cbKapal.SelectedValue) });
                 cmd.Parameters.AddWithValue("tgl_berangkat", dtpTanggalBerangkat.Value);
                 cmd.Parameters.AddWithValue("tgl_sampai", dtpTanggalSampai.Value);
                 cmd.Parameters.AddWithValue("titik", tbTitikBerangkat.Text ?? (object)DBNull.Value);
@@ -232,5 +244,6 @@ namespace SeaNoteApp
             var f = new LogManagementForm(selectedTripId);
             f.ShowDialog();
         }
+
     }
 }

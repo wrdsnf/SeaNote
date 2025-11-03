@@ -17,34 +17,38 @@
 
         private void InitializeComponent()
         {
-            this.dataGridViewTrips = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTrips)).BeginInit();
-            this.SuspendLayout();
+            dataGridViewTrips = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTrips).BeginInit();
+            SuspendLayout();
             // 
             // dataGridViewTrips
             // 
-            this.dataGridViewTrips.AllowUserToAddRows = false;
-            this.dataGridViewTrips.AllowUserToDeleteRows = false;
-            this.dataGridViewTrips.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewTrips.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewTrips.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewTrips.Name = "dataGridViewTrips";
-            this.dataGridViewTrips.ReadOnly = true;
-            this.dataGridViewTrips.RowTemplate.Height = 25;
-            this.dataGridViewTrips.Size = new System.Drawing.Size(784, 561);
-            this.dataGridViewTrips.TabIndex = 0;
+            dataGridViewTrips.AllowUserToAddRows = false;
+            dataGridViewTrips.AllowUserToDeleteRows = false;
+            dataGridViewTrips.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewTrips.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewTrips.Dock = DockStyle.Fill;
+            dataGridViewTrips.Location = new Point(0, 0);
+            dataGridViewTrips.Margin = new Padding(6, 6, 6, 6);
+            dataGridViewTrips.Name = "dataGridViewTrips";
+            dataGridViewTrips.ReadOnly = true;
+            dataGridViewTrips.RowHeadersWidth = 82;
+            dataGridViewTrips.RowTemplate.Height = 25;
+            dataGridViewTrips.Size = new Size(1456, 1197);
+            dataGridViewTrips.TabIndex = 0;
             // 
             // TripViewerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.dataGridViewTrips);
-            this.Name = "TripViewerForm";
-            this.Text = "Trip Viewer (Owner)";
-            this.Load += new System.EventHandler(this.TripViewerForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTrips)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1456, 1197);
+            Controls.Add(dataGridViewTrips);
+            Margin = new Padding(6, 6, 6, 6);
+            Name = "TripViewerForm";
+            Text = "Trip Viewer (Owner)";
+            Load += TripViewerForm_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTrips).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
