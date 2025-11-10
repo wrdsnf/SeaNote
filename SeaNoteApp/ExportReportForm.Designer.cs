@@ -16,6 +16,7 @@
         {
             cbReportType = new ComboBox();
             btnExportCsv = new Button();
+            lbl_typeExp = new Label();
             SuspendLayout();
             // 
             // cbReportType
@@ -23,9 +24,9 @@
             cbReportType.DropDownStyle = ComboBoxStyle.DropDownList;
             cbReportType.FormattingEnabled = true;
             cbReportType.Items.AddRange(new object[] { "Users", "Kapal", "Trips", "Maintenance", "Logs" });
-            cbReportType.Location = new Point(12, 12);
+            cbReportType.Location = new Point(147, 27);
             cbReportType.Name = "cbReportType";
-            cbReportType.Size = new Size(200, 40);
+            cbReportType.Size = new Size(200, 23);
             cbReportType.TabIndex = 0;
             // 
             // btnExportCsv
@@ -33,22 +34,35 @@
             btnExportCsv.BackColor = Color.DodgerBlue;
             btnExportCsv.FlatStyle = FlatStyle.Flat;
             btnExportCsv.ForeColor = Color.White;
-            btnExportCsv.Location = new Point(220, 12);
+            btnExportCsv.Location = new Point(117, 72);
             btnExportCsv.Name = "btnExportCsv";
-            btnExportCsv.Size = new Size(90, 23);
+            btnExportCsv.Size = new Size(117, 23);
             btnExportCsv.TabIndex = 1;
-            btnExportCsv.Text = "Export CSV";
+            btnExportCsv.Text = "Export CSV/PDF";
             btnExportCsv.UseVisualStyleBackColor = false;
             btnExportCsv.Click += btnExportCsv_Click;
             // 
+            // lbl_typeExp
+            // 
+            lbl_typeExp.AutoSize = true;
+            lbl_typeExp.Location = new Point(23, 30);
+            lbl_typeExp.Name = "lbl_typeExp";
+            lbl_typeExp.Size = new Size(110, 15);
+            lbl_typeExp.TabIndex = 2;
+            lbl_typeExp.Text = "Select Report Type :";
+            // 
             // ExportReportForm
             // 
-            ClientSize = new Size(334, 61);
+            ClientSize = new Size(361, 107);
+            Controls.Add(lbl_typeExp);
             Controls.Add(btnExportCsv);
             Controls.Add(cbReportType);
             Name = "ExportReportForm";
             Text = "Export Report";
             ResumeLayout(false);
+            PerformLayout();
         }
+
+        private Label lbl_typeExp;
     }
 }
