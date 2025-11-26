@@ -145,7 +145,7 @@ namespace SeaNoteApp
                     INSERT INTO public.maintenance 
                     (kapal_id, maintenance_title, description, status, maintenance_date) 
                     VALUES 
-                    (@kapal_id, @title, @desc, @status, @date)";
+                    (@kapal_id, @title, @desc, CAST(@status AS maintenance_status), @date)";
 
                 using var cmd = new NpgsqlCommand(sql, conn);
 
@@ -179,8 +179,9 @@ namespace SeaNoteApp
                 var sql = @"
                     UPDATE public.maintenance 
                     SET kapal_id = @kapal_id, maintenance_title = @title, 
-                        description = @desc, status = @status, maintenance_date = @date
+                        description = @desc, status = CAST(@status AS maintenance_status), maintenance_date = @date
                     WHERE maintenance_id = @maint_id";
+
 
                 using var cmd = new NpgsqlCommand(sql, conn);
 

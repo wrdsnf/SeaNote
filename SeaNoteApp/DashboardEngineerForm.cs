@@ -18,7 +18,7 @@ namespace SeaNoteApp
             }
         }
 
-        private void DashboardEngineerForm_Load(object sender, EventArgs e)
+        private async void DashboardEngineerForm_Load(object sender, EventArgs e)
         {
             if (LoginPage.loggedInUser == null)
             {
@@ -29,6 +29,7 @@ namespace SeaNoteApp
 
             LoadDashboardCounts();
             LoadRecentActivity();
+            await LoadWeatherAsync();
         }
 
         private void LoadDashboardCounts()
@@ -38,20 +39,21 @@ namespace SeaNoteApp
                 using var conn = DbHelper.GetConnection();
                 conn.Open();
 
-                var sqlPending = "SELECT COUNT(*) FROM public.maintenance WHERE user_id = @user_id AND status = 'Pending'";
-                using (var cmdPending = new NpgsqlCommand(sqlPending, conn))
+                // "Pending" = scheduled
+                var sqlScheduled = "SELECT COUNT(*) FROM public.maintenance WHERE status = 'scheduled'";
+                using (var cmdScheduled = new NpgsqlCommand(sqlScheduled, conn))
                 {
-                    cmdPending.Parameters.AddWithValue("user_id", LoginPage.loggedInUser.UserID);
-                    var count = cmdPending.ExecuteScalar();
-                    label3.Text = Convert.ToString(count); 
+                    var count = cmdScheduled.ExecuteScalar();
+                    label3.Text = Convert.ToString(count);   // label pending
                 }
 
-                var sqlCompleted = "SELECT COUNT(*) FROM public.maintenance WHERE user_id = @user_id AND status = 'Completed'";
+                // "Completed" = completed
+                var sqlCompleted = "SELECT COUNT(*) FROM public.maintenance WHERE status = 'completed'";
                 using (var cmdCompleted = new NpgsqlCommand(sqlCompleted, conn))
                 {
                     cmdCompleted.Parameters.AddWithValue("user_id", LoginPage.loggedInUser.UserID);
                     var count = cmdCompleted.ExecuteScalar();
-                    label5.Text = Convert.ToString(count); 
+                    label5.Text = Convert.ToString(count);   // label completed
                 }
             }
             catch (Exception ex)
@@ -72,11 +74,10 @@ namespace SeaNoteApp
                 var sql = @"
                     SELECT 
                         'Maintenance' AS Tipe, 
-                        deskripsi AS Deskripsi, 
-                        tanggal_selesai AS Waktu 
+                description AS Deskripsi, 
+                maintenance_date AS Waktu      -- pakai kolom ini
                     FROM public.maintenance
-                    WHERE user_id = @user_id -- <-- GANTI 'engineer_id' -> 'user_id'
-                    ORDER BY tanggal_selesai DESC
+            ORDER BY maintenance_date DESC    -- urut dari yang terbaru
                     LIMIT 5";
 
                 using var cmd = new NpgsqlCommand(sql, conn);
@@ -98,6 +99,44 @@ namespace SeaNoteApp
             catch (Exception ex)
             {
                 MessageBox.Show("Gagal load aktivitas terakhir: " + ex.Message);
+            }
+        }
+
+        private readonly WeatherService _weatherService = new WeatherService();
+
+        private async Task LoadWeatherAsync()
+        {
+            try
+            {
+                var city = "Yogyakarta";
+
+                var weather = await _weatherService.GetCurrentWeatherAsync(city);
+
+                if (weather?.Current != null)
+                {
+                    labelWeatherCity.Text = weather.Location?.Name ?? city;
+                    labelWeatherTemp.Text = $"{weather.Current.Temperature:0.0} °C";
+
+                    string desc = "-";
+                    if (weather.Current.Weather_Descriptions != null && weather.Current.Weather_Descriptions.Length > 0)
+                    {
+                        desc = weather.Current.Weather_Descriptions[0];
+                    }
+
+                    labelWeatherDesc.Text = desc;
+                }
+                else
+                {
+                    labelWeatherCity.Text = city;
+                    labelWeatherTemp.Text = "-";
+                    labelWeatherDesc.Text = "-";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal ambil data cuaca (Weatherstack): " + ex.Message);
+                labelWeatherTemp.Text = "-";
+                labelWeatherDesc.Text = "-";
             }
         }
 

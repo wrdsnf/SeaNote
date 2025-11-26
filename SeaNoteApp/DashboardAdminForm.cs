@@ -18,10 +18,11 @@ namespace SeaNoteApp
             }
         }
 
-        private void DashboardAdminForm_Load(object sender, EventArgs e)
+        private async void DashboardAdminForm_Load(object sender, EventArgs e)
         {
             LoadRecentActivity();
             LoadDashboardCounts(); 
+            await LoadWeatherAsync();
         }
 
         private void LoadDashboardCounts()
@@ -95,6 +96,43 @@ namespace SeaNoteApp
             }
         }
 
+        private readonly WeatherService _weatherService = new WeatherService();
+
+        private async Task LoadWeatherAsync()
+        {
+            try
+            {
+                var city = "Yogyakarta";
+
+                var weather = await _weatherService.GetCurrentWeatherAsync(city);
+
+                if (weather?.Current != null)
+                {
+                    labelWeatherCity.Text = weather.Location?.Name ?? city;
+                    labelWeatherTemp.Text = $"{weather.Current.Temperature:0.0} °C";
+
+                    string desc = "-";
+                    if (weather.Current.Weather_Descriptions != null && weather.Current.Weather_Descriptions.Length > 0)
+                    {
+                        desc = weather.Current.Weather_Descriptions[0];
+                    }
+
+                    labelWeatherDesc.Text = desc;
+                }
+                else
+                {
+                    labelWeatherCity.Text = city;
+                    labelWeatherTemp.Text = "-";
+                    labelWeatherDesc.Text = "-";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal ambil data cuaca (Weatherstack): " + ex.Message);
+                labelWeatherTemp.Text = "-";
+                labelWeatherDesc.Text = "-";
+            }
+        }
 
         private void BtnShipManagement_Click(object sender, EventArgs e)
         {
@@ -152,6 +190,11 @@ namespace SeaNoteApp
             }
 
             MessageBox.Show(fullReport);
+        }
+
+        private void tableLayoutPanel6_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

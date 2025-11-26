@@ -24,9 +24,9 @@
             cbReportType.DropDownStyle = ComboBoxStyle.DropDownList;
             cbReportType.FormattingEnabled = true;
             cbReportType.Items.AddRange(new object[] { "Users", "Kapal", "Trips", "Maintenance", "Logs" });
-            cbReportType.Location = new Point(147, 27);
+            cbReportType.Location = new Point(12, 12);
             cbReportType.Name = "cbReportType";
-            cbReportType.Size = new Size(200, 23);
+            cbReportType.Size = new Size(200, 28);
             cbReportType.TabIndex = 0;
             // 
             // btnExportCsv
@@ -34,11 +34,11 @@
             btnExportCsv.BackColor = Color.DodgerBlue;
             btnExportCsv.FlatStyle = FlatStyle.Flat;
             btnExportCsv.ForeColor = Color.White;
-            btnExportCsv.Location = new Point(117, 72);
+            btnExportCsv.Location = new Point(220, 12);
             btnExportCsv.Name = "btnExportCsv";
-            btnExportCsv.Size = new Size(117, 23);
+            btnExportCsv.Size = new Size(90, 28);
             btnExportCsv.TabIndex = 1;
-            btnExportCsv.Text = "Export CSV/PDF";
+            btnExportCsv.Text = "Export CSV";
             btnExportCsv.UseVisualStyleBackColor = false;
             btnExportCsv.Click += btnExportCsv_Click;
             // 
@@ -53,8 +53,7 @@
             // 
             // ExportReportForm
             // 
-            ClientSize = new Size(361, 107);
-            Controls.Add(lbl_typeExp);
+            ClientSize = new Size(334, 61);
             Controls.Add(btnExportCsv);
             Controls.Add(cbReportType);
             Name = "ExportReportForm";

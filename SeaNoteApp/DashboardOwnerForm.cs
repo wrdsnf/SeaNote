@@ -18,10 +18,11 @@ namespace SeaNoteApp
             }
         }
 
-        private void DashboardOwnerForm_Load(object sender, EventArgs e)
+        private async void DashboardOwnerForm_Load(object sender, EventArgs e)
         {
             LoadDashboardCounts();
             LoadRecentActivity();
+            await LoadWeatherAsync();
         }
 
         private void LoadDashboardCounts()
@@ -43,7 +44,7 @@ namespace SeaNoteApp
                     label5.Text = Convert.ToString(count);
                 }
 
-                using (var cmdMaint = new NpgsqlCommand("SELECT COUNT(*) FROM public.maintenance WHERE status = 'Pending'", conn))
+                using (var cmdMaint = new NpgsqlCommand("SELECT COUNT(*) FROM public.maintenance WHERE status = 'scheduled'", conn))
                 {
                     var count = cmdMaint.ExecuteScalar();
                     label7.Text = Convert.ToString(count);
@@ -95,6 +96,44 @@ namespace SeaNoteApp
             }
         }
 
+        private readonly WeatherService _weatherService = new WeatherService();
+
+        private async Task LoadWeatherAsync()
+        {
+            try
+            {
+                var city = "Yogyakarta";
+
+                var weather = await _weatherService.GetCurrentWeatherAsync(city);
+
+                if (weather?.Current != null)
+                {
+                    labelWeatherCity.Text = weather.Location?.Name ?? city;
+                    labelWeatherTemp.Text = $"{weather.Current.Temperature:0.0} °C";
+
+                    string desc = "-";
+                    if (weather.Current.Weather_Descriptions != null && weather.Current.Weather_Descriptions.Length > 0)
+                    {
+                        desc = weather.Current.Weather_Descriptions[0];
+                    }
+
+                    labelWeatherDesc.Text = desc;
+                }
+                else
+                {
+                    labelWeatherCity.Text = city;
+                    labelWeatherTemp.Text = "-";
+                    labelWeatherDesc.Text = "-";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal ambil data cuaca (Weatherstack): " + ex.Message);
+                labelWeatherTemp.Text = "-";
+                labelWeatherDesc.Text = "-";
+            }
+        }
+
 
         private void BtnShipViewer_Click(object sender, EventArgs e)
         {
@@ -122,6 +161,11 @@ namespace SeaNoteApp
             var loginForm = Application.OpenForms.OfType<LoginPage>().FirstOrDefault();
             if (loginForm != null) { loginForm.Show(); } else { new LoginPage().Show(); }
             this.Close();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

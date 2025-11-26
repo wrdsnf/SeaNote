@@ -158,13 +158,14 @@ namespace SeaNoteApp
                     INSERT INTO public.maintenance 
                     (kapal_id, maintenance_title, description, status, maintenance_date) 
                     VALUES 
-                    (@kapal_id, @title, @desc, 'scheduled', @date)";
+            (@kapal_id, @title, @desc, CAST(@status AS maintenance_status), @date)";
 
                 using var cmd = new NpgsqlCommand(sql, conn);
 
                 cmd.Parameters.Add(new NpgsqlParameter("kapal_id", NpgsqlDbType.Bigint) { Value = (long)cbKapal.SelectedValue });
                 cmd.Parameters.AddWithValue("title", tbMaintTitle.Text);
                 cmd.Parameters.AddWithValue("desc", string.IsNullOrEmpty(tbMaintDescription.Text) ? (object)DBNull.Value : tbMaintDescription.Text);
+                cmd.Parameters.AddWithValue("status", cbStatus.SelectedItem?.ToString() ?? "scheduled");
                 cmd.Parameters.AddWithValue("date", dtpMaintenanceDate.Value.Date);
 
                 cmd.ExecuteNonQuery();
@@ -190,7 +191,7 @@ namespace SeaNoteApp
 
                 var sql = @"
                     UPDATE public.maintenance 
-                    SET status = @status
+            SET status = CAST(@status AS maintenance_status)
                     WHERE maintenance_id = @maint_id";
 
                 using var cmd = new NpgsqlCommand(sql, conn);
@@ -209,5 +210,6 @@ namespace SeaNoteApp
                 MessageBox.Show("Gagal update status: " + ex.Message);
             }
         }
+
     }
 }
