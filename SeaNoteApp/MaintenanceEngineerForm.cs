@@ -155,9 +155,9 @@ namespace SeaNoteApp
                 conn.Open();
 
                 var sql = @"
-            INSERT INTO public.maintenance 
-            (kapal_id, maintenance_title, description, status, maintenance_date) 
-            VALUES 
+                    INSERT INTO public.maintenance 
+                    (kapal_id, maintenance_title, description, status, maintenance_date) 
+                    VALUES 
             (@kapal_id, @title, @desc, CAST(@status AS maintenance_status), @date)";
 
                 using var cmd = new NpgsqlCommand(sql, conn);
@@ -190,9 +190,9 @@ namespace SeaNoteApp
                 conn.Open();
 
                 var sql = @"
-            UPDATE public.maintenance 
+                    UPDATE public.maintenance 
             SET status = CAST(@status AS maintenance_status)
-            WHERE maintenance_id = @maint_id";
+                    WHERE maintenance_id = @maint_id";
 
                 using var cmd = new NpgsqlCommand(sql, conn);
 

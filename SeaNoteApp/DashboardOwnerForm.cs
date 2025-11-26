@@ -35,7 +35,7 @@ namespace SeaNoteApp
                 using (var cmdShip = new NpgsqlCommand("SELECT COUNT(*) FROM public.kapal", conn))
                 {
                     var count = cmdShip.ExecuteScalar();
-                    label3.Text = Convert.ToString(count);
+                    label3.Text = Convert.ToString(count); 
                 }
 
                 using (var cmdTrip = new NpgsqlCommand("SELECT COUNT(*) FROM public.trips", conn))

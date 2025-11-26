@@ -16,6 +16,7 @@
         {
             cbReportType = new ComboBox();
             btnExportCsv = new Button();
+            lbl_typeExp = new Label();
             SuspendLayout();
             // 
             // cbReportType
@@ -41,6 +42,15 @@
             btnExportCsv.UseVisualStyleBackColor = false;
             btnExportCsv.Click += btnExportCsv_Click;
             // 
+            // lbl_typeExp
+            // 
+            lbl_typeExp.AutoSize = true;
+            lbl_typeExp.Location = new Point(23, 30);
+            lbl_typeExp.Name = "lbl_typeExp";
+            lbl_typeExp.Size = new Size(110, 15);
+            lbl_typeExp.TabIndex = 2;
+            lbl_typeExp.Text = "Select Report Type :";
+            // 
             // ExportReportForm
             // 
             ClientSize = new Size(334, 61);
@@ -49,6 +59,9 @@
             Name = "ExportReportForm";
             Text = "Export Report";
             ResumeLayout(false);
+            PerformLayout();
         }
+
+        private Label lbl_typeExp;
     }
 }

@@ -51,6 +51,7 @@ namespace SeaNoteApp
                 var sqlCompleted = "SELECT COUNT(*) FROM public.maintenance WHERE status = 'completed'";
                 using (var cmdCompleted = new NpgsqlCommand(sqlCompleted, conn))
                 {
+                    cmdCompleted.Parameters.AddWithValue("user_id", LoginPage.loggedInUser.UserID);
                     var count = cmdCompleted.ExecuteScalar();
                     label5.Text = Convert.ToString(count);   // label completed
                 }
@@ -71,15 +72,16 @@ namespace SeaNoteApp
                 conn.Open();
 
                 var sql = @"
-            SELECT 
-                'Maintenance' AS Tipe, 
+                    SELECT 
+                        'Maintenance' AS Tipe, 
                 description AS Deskripsi, 
                 maintenance_date AS Waktu      -- pakai kolom ini
-            FROM public.maintenance
+                    FROM public.maintenance
             ORDER BY maintenance_date DESC    -- urut dari yang terbaru
-            LIMIT 5";
+                    LIMIT 5";
 
                 using var cmd = new NpgsqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("user_id", LoginPage.loggedInUser.UserID);
 
                 var dt = new DataTable();
                 var adapter = new NpgsqlDataAdapter(cmd);
