@@ -1,7 +1,6 @@
 # SeaNote
 
-Aplikasi desktop logbook digital yang memudahkan pencatatan perjalanan kapal, kru,
-bahan bakar, perbekalan, serta perawatan mesin.
+Aplikasi desktop logbook digital yang memudahkan pencatatan perjalanan kapal, kru, bahan bakar, serta perawatan mesin.
 
 `Kelompok junproZzZ`
 
@@ -44,6 +43,56 @@ Aplikasi ini menerapkan **Role-Based Access Control (RBAC)** dengan pembagian ak
 * **Executive Dashboard:** Memantau total armada, trip aktif, dan maintenance pending secara global.
 * **Read-Only Access:** Akses data transparan tanpa risiko perubahan data yang tidak disengaja.
 * **Activity Monitoring:** Memantau aktivitas terbaru yang dilakukan oleh Admin dan Engineer.
+
+---
+
+## 📸 Application Previews
+
+Berikut adalah tampilan antarmuka aplikasi SeaNote:
+
+### 0. Splash Screen
+Tampilan awal yang menyambut pengguna dengan identitas visual modern saat aplikasi pertama kali dijalankan.
+<div align="left">
+  <img src="images/Splash.png" alt="Splash Screen SeaNote" width="55%" />
+</div>
+
+### 1. Autentikasi & Keamanan
+Aplikasi dilengkapi dengan sistem login yang membedakan hak akses (Admin, Engineer, Owner).
+<div align="left">
+  <img src="images/AuthLogin.png" alt="Login Page" width="35%" />
+</div>
+
+### 2. Dashboard Monitoring (Admin)
+Pusat kontrol untuk melihat ringkasan jumlah kapal, trip aktif, dan log aktivitas global.
+<div align="left">
+  <img src="images/AdmDashboard.png" alt="Admin Dashboard" width="45%" />
+</div>
+
+### 3. Manajemen Operasional (Trip & Ships)
+Formulir input data yang valid dan terintegrasi langsung dengan database PostgreSQL.
+<table>
+  <tr>
+    <td width="50%" align="left" valign="middle">
+      <img src="images/ManageTrips.png" alt="Trip Management" width="100%" />
+    </td>
+    <td width="50%" align="center" valign="middle">
+      <img src="images/ManageShips.png" alt="Ship Management" width="100%" />
+    </td>
+  </tr>
+</table>
+
+### 4. Engineer Workspace
+Dashboard khusus teknisi untuk memantau maintenance dan status perbaikan mesin.
+<table>
+  <tr>
+    <td width="50%" align="left" valign="middle">
+      <img src="images/EngDashboard.png" alt="Engineer Dashboard" width="100%" />
+    </td>
+    <td width="50%" align="center" valign="middle">
+      <img src="images/ManageMaintenance.png" alt="Manage Maintenance" width="100%" />
+    </td>
+  </tr>
+</table>
 
 ---
 
