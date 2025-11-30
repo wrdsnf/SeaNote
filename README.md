@@ -90,12 +90,14 @@ Aplikasi ini menerapkan pilar **Object-Oriented Programming (OOP)** secara ketat
     git clone [https://github.com/wrdsnf/SeaNote.git](https://github.com/wrdsnf/SeaNote.git)
     ```
 2.  **Konfigurasi Database**
-    * Buat database baru bernama `seanote_db`.
-    * Import skema database dari file `database/schema.sql` (jika tersedia).
-    * Sesuaikan kredensial koneksi di file `DbHelper.cs`.
+    * Buat database baru di PostgreSQL bernama `seanote_db`.
+    * Import skema database dari file SQL yang tersedia (jika ada) atau sesuaikan dengan ERD.
+    * Buka file `SeaNoteApp/DbHelper.cs`.
+    * Sesuaikan string koneksi (`Host`, `Username`, `Password`) dengan database Anda.
 3.  **Jalankan Aplikasi**
-    * Buka solution `SeaNoteApp.sln`.
-    * Tekan **F5** untuk menjalankan mode Debug.
+    * Buka file solution **`SeaNotea-proj.sln`** di Visual Studio 2022.
+    * Di *Solution Explorer*, klik kanan project **`SeaNoteApp`** lalu pilih **"Set as Startup Project"**.
+    * Tekan **F5** atau klik tombol **Start** untuk menjalankan aplikasi.
 
 ---
 
@@ -107,7 +109,7 @@ Gunakan kredensial berikut untuk mencoba fitur berdasarkan role:
 | :--- | :--- | :--- |
 | **Admin** | `admin` | `123` |
 | **Engineer** | `cl` | `16` |
-| **Owner** | `owner` | `owner123` |
+| **Owner** | `own` | `123` |
 
 ---
 
