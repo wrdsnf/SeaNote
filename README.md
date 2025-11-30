@@ -74,8 +74,6 @@ Aplikasi ini menerapkan pilar **Object-Oriented Programming (OOP)** secara ketat
 3.  **Polymorphism (Banyak Bentuk):**
     * Penggunaan List generik untuk menampung objek turunan yang berbeda dalam satu proses pelaporan.
 
-*(Masukkan screenshot Class Diagram/ERD di folder `docs` atau `images` di repo Anda)*
-
 ---
 
 ## 🚀 Instalasi & Penggunaan
