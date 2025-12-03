@@ -1,0 +1,171 @@
+﻿<Window x:Class="SeaNoteWPF.TripManagementWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Trip Management" Height="768" Width="1366"
+        WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True" Background="Transparent"
+        MouseDown="Window_MouseDown">
+
+    <Border CornerRadius="25" ClipToBounds="True" Background="{StaticResource BgColor}">
+        <Grid>
+            <Ellipse Width="900" Height="900" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="-300,0,0,-300" Opacity="0.15" IsHitTestVisible="False">
+                <Ellipse.Fill>
+                    <RadialGradientBrush>
+                        <GradientStop Color="#0077B6" Offset="0"/>
+                        <GradientStop Color="Transparent" Offset="1"/>
+                    </RadialGradientBrush>
+                </Ellipse.Fill>
+                <Ellipse.Effect>
+                    <BlurEffect Radius="150"/>
+                </Ellipse.Effect>
+            </Ellipse>
+
+            <Grid Margin="30">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Margin="0,0,0,30">
+                    <Button Content="← Back to Dashboard" Click="BtnBack_Click" HorizontalAlignment="Left" 
+                            Background="Transparent" Foreground="#8D99AE" BorderThickness="0" Cursor="Hand" FontSize="14"/>
+                    <TextBlock Text="Trip Management" Style="{StaticResource HeaderTitle}" Margin="0,10,0,0"/>
+                </StackPanel>
+
+                <Grid Grid.Row="1" Margin="0,0,0,30">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="0" Style="{StaticResource NavyCard}">
+                        <StackPanel>
+                            <TextBlock Text="TOTAL TRIPS" Style="{StaticResource CardLabel}"/>
+                            <TextBlock x:Name="lblTotalTrips" Text="0" Style="{StaticResource BigNumberGold}" FontSize="56"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Grid.Column="2" Style="{StaticResource NavyCard}">
+                        <StackPanel>
+                            <TextBlock Text="ACTIVE NOW" Style="{StaticResource CardLabel}"/>
+                            <TextBlock x:Name="lblActiveTrips" Text="0" Style="{StaticResource BigNumberGold}" FontSize="56" Foreground="#64FFDA"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Grid.Column="4" Style="{StaticResource NavyCard}">
+                        <StackPanel>
+                            <TextBlock Text="SCHEDULED" Style="{StaticResource CardLabel}"/>
+                            <TextBlock x:Name="lblScheduled" Text="0" Style="{StaticResource BigNumberGold}" FontSize="56" Foreground="White"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+                <Border Grid.Row="2" Background="#331C2541" CornerRadius="20" Padding="20" BorderBrush="#33FFFFFF" BorderThickness="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0" Margin="0,0,0,20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="300"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox x:Name="tbSearch" Style="{StaticResource InputStyle}" Tag="Search trips..." TextChanged="TbSearch_TextChanged"/>
+                            <Button Grid.Column="2" Content="+ Add Trip" Click="BtnAdd_Click" 
+                                    Background="{StaticResource BtnAddDefault}" Foreground="#0B132B" FontWeight="Bold" Padding="20,10">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="10"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </Grid>
+
+                        <DataGrid x:Name="dgTrips" Grid.Row="1" Style="{StaticResource GlassDataGrid}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Ship Name" Binding="{Binding ShipName}" Width="*"/>
+                                <DataGridTextColumn Header="Depart" Binding="{Binding DepartureDate, StringFormat=d}" Width="120"/>
+                                <DataGridTextColumn Header="Arrival" Binding="{Binding ArrivalDate, StringFormat=d}" Width="120"/>
+                                <DataGridTextColumn Header="From" Binding="{Binding DeparturePoint}" Width="150"/>
+                                <DataGridTextColumn Header="Captain" Binding="{Binding Captain}" Width="150"/>
+                                <DataGridTemplateColumn Header="Actions" Width="100">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Button Content="✏️" Click="BtnEdit_Click" Tag="{Binding Id}" Background="Transparent" BorderThickness="0" Cursor="Hand"/>
+                                                <Button Content="❌" Click="BtnDelete_Click" Tag="{Binding Id}" Background="Transparent" BorderThickness="0" Cursor="Hand" Margin="10,0,0,0"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <Grid x:Name="ModalOverlay" Visibility="Collapsed" Background="#CC000000">
+                <Border Width="500" Background="{StaticResource GlassModalBg}" CornerRadius="20" Padding="30" BorderBrush="#33FFFFFF" BorderThickness="1">
+                    <StackPanel>
+                        <TextBlock x:Name="lblModalTitle" Text="Add Trip" Style="{StaticResource HeaderTitle}" FontSize="24" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+                        <TextBlock Text="Select Ship" Foreground="#8D99AE" Margin="0,0,0,5"/>
+                        <ComboBox x:Name="cbShips" Height="40" Margin="0,0,0,15" DisplayMemberPath="name" SelectedValuePath="kapal_id" FontSize="14" Padding="10,0"/>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock Text="Departure Date" Foreground="#8D99AE" Margin="0,0,0,5"/>
+                                <DatePicker x:Name="dpDepart" Height="40" Margin="0,0,0,15"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2">
+                                <TextBlock Text="Arrival Date" Foreground="#8D99AE" Margin="0,0,0,5"/>
+                                <DatePicker x:Name="dpArrival" Height="40" Margin="0,0,0,15"/>
+                            </StackPanel>
+                        </Grid>
+
+                        <TextBlock Text="Departure Point" Foreground="#8D99AE" Margin="0,0,0,5"/>
+                        <TextBox x:Name="tbDepartPoint" Style="{StaticResource GlassInput}" Margin="0,0,0,15"/>
+
+                        <TextBlock Text="Captain (Nakhoda)" Foreground="#8D99AE" Margin="0,0,0,5"/>
+                        <TextBox x:Name="tbCaptain" Style="{StaticResource GlassInput}" Margin="0,0,0,15"/>
+
+                        <TextBlock Text="Notes" Foreground="#8D99AE" Margin="0,0,0,5"/>
+                        <TextBox x:Name="tbNotes" Style="{StaticResource GlassInput}" Height="60" TextWrapping="Wrap" Margin="0,0,0,30"/>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="20"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="btnSave" Content="Save" Click="BtnSave_Click" Grid.Column="0" Background="{StaticResource BtnAddDefault}" Foreground="#0B132B" FontWeight="Bold" Height="45">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="10"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Button Content="Cancel" Click="BtnCloseModal_Click" Grid.Column="2" Background="Transparent" BorderBrush="#8D99AE" BorderThickness="1" Foreground="White" Height="45">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="10"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

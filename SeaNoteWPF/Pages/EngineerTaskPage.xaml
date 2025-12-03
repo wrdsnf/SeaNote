@@ -1,0 +1,47 @@
+﻿<Page x:Class="SeaNoteWPF.Pages.EngineerTaskPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="EngineerTaskPage">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="0,0,0,20">
+            <TextBlock Text="My Tasks" Style="{StaticResource HeaderTitle}"/>
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                <RadioButton x:Name="rbPending" Content="Pending Tasks" IsChecked="True" Style="{StaticResource TabButtonStyle}" Click="Filter_Click"/>
+                <RadioButton x:Name="rbHistory" Content="Work History" Style="{StaticResource TabButtonStyle}" Click="Filter_Click"/>
+            </StackPanel>
+        </StackPanel>
+
+        <Border Grid.Row="1" Background="#331C2541" CornerRadius="20" Padding="20" BorderBrush="#33FFFFFF" BorderThickness="1">
+            <DataGrid x:Name="dgTasks" Style="{StaticResource GlassDataGrid}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Ship Name" Binding="{Binding ShipName}" Width="150"/>
+                    <DataGridTextColumn Header="Issue" Binding="{Binding Description}" Width="*"/>
+                    <DataGridTextColumn Header="Report Date" Binding="{Binding ReportDate}" Width="120"/>
+                    <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="100" FontWeight="Bold"/>
+
+                    <DataGridTemplateColumn Header="Action" Width="120">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="✅ Finish" Click="BtnFinish_Click" Tag="{Binding Id}" 
+                                        Background="{StaticResource BtnAddDefault}" Foreground="Black" FontWeight="Bold"
+                                        Visibility="{Binding ActionVisibility}" Cursor="Hand">
+                                    <Button.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="5"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+    </Grid>
+</Page>

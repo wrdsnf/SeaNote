@@ -1,0 +1,41 @@
+﻿<Window x:Class="SeaNoteWPF.SignUpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sign Up" Height="600" Width="450"
+        WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True" Background="Transparent" MouseDown="Window_MouseDown">
+
+    <Border CornerRadius="20" Background="#CC1C2541" BorderBrush="#33FFFFFF" BorderThickness="1">
+        <Grid Margin="30">
+            <StackPanel>
+                <TextBlock Text="Create Account" Style="{StaticResource HeaderTitle}" FontSize="28" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+                <TextBlock Text="Username" Style="{StaticResource GlassLabel}"/>
+                <TextBox x:Name="tbUser" Style="{StaticResource GlassInput}" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Full Name" Style="{StaticResource GlassLabel}"/>
+                <TextBox x:Name="tbName" Style="{StaticResource GlassInput}" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Role" Style="{StaticResource GlassLabel}"/>
+                <ComboBox x:Name="cbRole" Height="40" Margin="0,0,0,10" FontSize="14">
+                    <ComboBoxItem Content="engineer"/>
+                    <ComboBoxItem Content="owner"/>
+                </ComboBox>
+
+                <TextBlock Text="Password" Style="{StaticResource GlassLabel}"/>
+                <TextBox x:Name="tbPass" Style="{StaticResource GlassInput}" Margin="0,0,0,10"/>
+                <TextBlock Text="Confirm Password" Style="{StaticResource GlassLabel}"/>
+                <TextBox x:Name="tbConfirm" Style="{StaticResource GlassInput}" Margin="0,0,0,30"/>
+
+                <Button Content="SIGN UP" Click="BtnSignUp_Click" Background="{StaticResource BtnAddDefault}" Foreground="#0B132B" FontWeight="Bold" Height="45">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Content="Cancel" Click="BtnCancel_Click" Background="Transparent" Foreground="#8D99AE" BorderThickness="0" Margin="0,10,0,0"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
